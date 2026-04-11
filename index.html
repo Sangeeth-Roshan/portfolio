@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🚀 Sangeeth | Portfolio</title>
+    <link rel='icon' type='image/png' href='assets/icon.png'/>
+    <style>
+      /* =====================
+       THEME & TOKENS
+    ====================== */
+      :root {
+        --bg-0: #0f0f10; /* page base */
+        --bg-1: #141416; /* section card */
+        --bg-2: #1b1c20; /* elevated */
+        --text: #f3f3f3; /* primary text */
+        --muted: #bdbdbd; /* secondary text */
+        --gold: #d4af37; /* primary accent */
+        --gold-2: #f2d675; /* light accent */
+        --line: #2a2b31; /* separators */
+        --radius: 18px;
+        --shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+        --speed: 0.6s;
+      }
+
+      /* =====================
+       BASE STYLES
+    ====================== */
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: radial-gradient(
+            ellipse 1200px 800px at 80% 0%,
+            rgba(212, 175, 55, 0.1),
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 1000px 700px at 10% 100%,
+            rgba(242, 214, 117, 0.09),
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 900px 600px at 50% 60%,
+            rgba(212, 175, 55, 0.07),
+            transparent 75%
+          ),
+          repeating-linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.01) 0 8%,
+            rgba(0, 0, 0, 0.03) 8% 16%
+          ),
+          linear-gradient(180deg, #0e0e10 0%, #0b0b0c 100%);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a.accent {
+        text-decoration: underline !important;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      /* =====================
+       FLOATING DOT NAV
+    ====================== */
+      .dots {
+        position: fixed;
+        right: 22px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 9999;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #3a3a3f;
+        position: relative;
+        transition: 0.25s transform, 0.25s background;
+      }
+      .dot:hover {
+        transform: scale(1.15);
+        background: var(--gold);
+      }
+      .dot.active {
+        background: var(--gold);
+      }
+      .dot::after {
+        content: attr(data-label);
+        position: absolute;
+        right: 140%;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--bg-2);
+        padding: 6px 10px;
+        border-radius: 10px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.2s;
+        border: 1px solid var(--line);
+        white-space: nowrap;
+      }
+      .dot:hover::after {
+        opacity: 1;
+      }
+
+      /* =====================
+       HERO
+    ====================== */
+      header.hero {
+        min-height: 86vh;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        padding: 96px 18px 48px;
+        position: relative;
+        isolation: isolate;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        z-index: -1;
+        background: radial-gradient(
+          550px 260px at 50% 10%,
+          rgba(212, 175, 55, 0.16),
+          transparent 60%
+        );
+        filter: blur(20px);
+      }
+      .title {
+        font-size: clamp(38px, 7vw, 64px);
+        font-weight: 800;
+        letter-spacing: 0.5px;
+      }
+      .accent {
+        background: linear-gradient(90deg, var(--gold), var(--gold-2));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .tag {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: clamp(14px, 2.5vw, 18px);
+      }
+
+      .cta-row {
+        margin-top: 28px;
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        padding: 12px 18px;
+        border-radius: 12px;
+        border: 1px solid #3a3a3f;
+        background: var(--bg-2);
+        transition: 0.28s transform, 0.28s box-shadow, 0.28s border-color;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      }
+      .btn:hover {
+        transform: translateY(-3px);
+        border-color: var(--gold);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45);
+      }
+      .btn.primary {
+        border: 1px solid var(--gold);
+        background: linear-gradient(
+          180deg,
+          rgba(212, 175, 55, 0.18),
+          rgba(212, 175, 55, 0.08)
+        );
+      }
+
+      /* =====================
+       SECTIONS
+    ====================== */
+      section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 48px 20px 64px;
+      }
+      .section-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 8px 8px 22px;
+      }
+      .section-title .emoji {
+        font-size: 1.2rem;
+        filter: saturate(0.9);
+      }
+
+      .card {
+        background: var(--bg-1);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 22px 22px;
+        box-shadow: var(--shadow);
+      }
+
+      /* grid util */
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+      @media (min-width: 820px) {
+        .grid.cols-2 {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* =====================
+       TIMELINE
+    ====================== */
+      .timeline {
+        position: relative;
+        padding-left: 26px;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 11px;
+        top: 6px;
+        bottom: 6px;
+        width: 2px;
+        background: #2c2d33;
+        border-radius: 2px;
+      }
+      .t-item {
+        position: relative;
+        padding: 14px 16px 14px 18px;
+        border: 1px solid var(--line);
+        background: var(--bg-2);
+        border-radius: 14px;
+        margin: 14px 0;
+      }
+      .t-item::before {
+        content: "";
+        position: absolute;
+        left: -18px;
+        top: 18px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+      }
+      .t-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        color: var(--muted);
+      }
+      .t-title {
+        font-weight: 600;
+        color: var(--text);
+        margin-top: 6px;
+      }
+
+      /* =====================
+       BADGE GRID (no bullets)
+    ====================== */
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .badge {
+        padding: 8px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: linear-gradient(180deg, #1c1d22, #17181c);
+        color: #dfdfdf;
+        font-size: 0.92rem;
+      }
+
+      /* =====================
+       SPORT/MUN/PROJECT CARDS
+    ====================== */
+      .h-card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 18px;
+        background: var(--bg-2);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+      }
+      .h-emoji {
+        font-size: 1.25rem;
+      }
+      .h-title {
+        font-weight: 600;
+      }
+      .h-sub {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      /* =====================
+       REVEAL ANIMATIONS
+    ====================== */
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity var(--speed) ease, transform var(--speed) ease;
+      }
+      .reveal.show {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* =====================
+       FOOTER
+    ====================== */
+      footer {
+        padding: 36px 16px 56px;
+        text-align: center;
+        color: var(--muted);
+      }
+      .heart {
+        filter: saturate(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating Dot Nav -->
+    <nav class="dots" aria-label="Section navigation">
+      <a class="dot active" data-label="Top" href="#top"></a>
+      <a class="dot" data-label="About" href="#about"></a>
+      <a class="dot" data-label="Education" href="#education"></a>
+      <a class="dot" data-label="Leadership" href="#leadership"></a>
+      <a class="dot" data-label="Achievements" href="#achievements"></a>
+      <a class="dot" data-label="Sports" href="#sports"></a>
+      <!-- <a class="dot" data-label="MUN" href="#mun"></a> -->
+      <a class="dot" data-label="Projects" href="#projects"></a>
+      <a class="dot" data-label="Contact" href="#contact"></a>
+    </nav>
+
+    <!-- Hero -->
+    <header id="top" class="hero">
+      <div>
+        <h1 class="title reveal">
+          Hi, I'm <span class="accent">Sangeeth</span> 👋
+        </h1>
+        <p class="tag reveal h-title" style="transition-delay: 0.12s">
+          <span class="accent"
+            >Student • Athlete • Aspiring Software Engineer</span
+          >
+        </p>
+        <div class="cta-row reveal" style="transition-delay: 0.22s">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- About -->
+    <section id="about">
+      <div class="section-title">
+        <span class="emoji">🧭</span><span class="accent">About</span>
+      </div>
+      <div class="card grid cols-2 reveal">
+        <div>
+          <p>
+            <span class="accent h-title">I'm Sangeeth</span> — I enjoy building
+            things with code and keeping life competitive on court. Currently in
+            Class 12 (CBSE), balancing academics with tech, sport and stage.
+          </p>
+          <div style="margin-top: 14px" class="badges">
+            <span class="badge">Python</span>
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">OpenCV</span>
+            <span class="badge">Public Speaking</span>
+          </div>
+        </div>
+        <div
+          class="card"
+          style="
+            background: linear-gradient(180deg, #17181d, #14151a);
+            border: 1px dashed #3a3a3f;
+          "
+        >
+          <div class="section-title" style="margin: 0 0 8px">
+            <span class="emoji">🎓</span><span>School</span>
+          </div>
+          <div class="h-title">
+            <span class="accent">Amrita Vidyalayam</span>
+          </div>
+          <div class="h-title" style="margin-top: 6px">
+            <span class="accent">2010 – 2026 • Batch of 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education (Timeline) -->
+    <section id="education">
+      <div class="section-title">
+        <span class="emoji">🗂️</span><span class="accent">Education</span>
+      </div>
+      <div class="timeline">
+        <div class="t-item reveal">
+          <div class="t-top">
+            <span>Class 12 • CBSE</span><span class="accent">2025–26</span>
+          </div>
+          <div class="t-title">
+            Focus: Physics • Chemistry • Maths • Computer Science
+          </div>
+          <div class="h-sub">
+            Pursuing science stream at Amrita Vidyalayam K.K Nagar
+          </div>
+        </div>
+        <div class="t-item reveal" style="transition-delay: 0.08s">
+          <div class="t-top">
+            <span>CBSE 10th Boards</span><span class="accent">2023-24</span>
+          </div>
+          <div class="t-title">Score: 461/500</div>
+          <div class="h-sub">Overall percentage of 92.2%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership / Experience -->
+    <section id="leadership">
+      <div class="section-title">
+        <span class="emoji">🧑‍💼</span
+        ><span class="accent">Leadership & Experience</span>
+      </div>
+      <div class="grid cols-2">
+        <!-- Merged Student Council & Assistant Sports Secretary -->
+        <div class="h-card reveal">
+          <div class="h-emoji">🏫</div>
+          <div>
+            <div class="h-title">
+              <span class="accent">
+                Student Council & Assistant Sports Secretary</span
+              >
+            </div>
+            <div class="h-sub">
+              Took leadership opportunities in academic spaces and organised &
+              coordinated school sports initiatives.
+            </div>
+          </div>
+        </div>
+        <div class="h-card reveal" style="transition-delay: 0.12s">
+          <div class="h-emoji">🎹</div>
+          <div>
+            <div class="h-title accent">Asia Book of Records</div>
+            <div class="h-sub">
+              Largest Electronic Keyboard Ensemble — May 1, 2023
+            </div>
+          </div>
+        </div>
+        <!-- New AVMUN card -->
+        <div class="h-card reveal" style="transition-delay: 0.18s">
+          <div class="h-emoji">🗣️</div>
+          <div>
+            <div class="h-title">
+              <span class="accent">AVMUN'25 — MK Stalin</span>
+            </div>
+            <div class="h-sub">
+              Represented MK Stalin, debated and drafted resolutions at AVMUN
+              2025.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements">
+      <div class="section-title">
+        <span class="emoji">🏆</span><span class="accent">Achievements</span>
+      </div>
+      <div class="grid cols-2">
+        <div class="card reveal">
+          <div class="h-title">
+            <span class="accent"
+              >Highest marks — Computer Science (Class 11)</span
+            >
+          </div>
+          <div class="h-sub">Proficiency award and subject topper.</div>
+        </div>
+        <div class="card reveal" style="transition-delay: 0.06s">
+          <div class="h-title">
+            <span class="accent">Asia Book of Records</span>
+          </div>
+          <div class="h-sub">
+            Part of the Asia's largest electronic keyboard ensemble — May 1,
+            2023
+          </div>
+        </div>
+        <!-- New sports trophies card -->
+        <div class="card reveal" style="transition-delay: 0.12s">
+          <div class="h-title">
+            <span class="accent">Multiple Sports Trophies</span>
+          </div>
+          <div class="h-sub">
+            Won various trophies in school-level football and badminton
+            tournaments.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sports -->
+    <section id="sports">
+      <div class="section-title">
+        <span class="emoji">🏸</span><span class="accent">Sports</span>
+      </div>
+      <div class="grid cols-2">
+        <div class="h-card reveal">
+          <div class="h-emoji">⚽</div>
+          <div>
+            <div class="h-title"><span class="accent">Football</span></div>
+            <div class="h-sub">School Team Player</div>
+          </div>
+        </div>
+        <div class="h-card reveal" style="transition-delay: 0.06s">
+          <div class="h-emoji">🏸</div>
+          <div>
+            <div class="h-title"><span class="accent">Badminton</span></div>
+            <div class="h-sub">Player</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-title">
+        <span class="emoji">💻</span><span class="accent">Projects</span>
+      </div>
+      <div class="card reveal">
+        <div class="h-title">
+          <span class="accent">UNIPECT — Uniform Inspection System</span>
+        </div>
+        <div class="h-sub">
+          Python • OpenCV • Teachable Machine • Tkinter — built for a school
+          expo to check uniform compliance via camera.
+        </div>
+        <div class="badges" style="margin-top: 12px">
+          <span class="badge">Computer Vision</span>
+          <span class="badge">ML</span>
+          <span class="badge">Tkinter UI</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-title">
+        <span class="emoji">✉️</span><span class="accent">Contact</span>
+      </div>
+      <div
+        class="card reveal"
+        style="
+          display: flex;
+          flex-direction: row;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 32px;
+          padding: 28px 28px 24px 28px;
+          flex-wrap: wrap;
+        "
+      >
+        <div style="min-width: 260px">
+          <div class="h-title" style="padding-bottom: 8px">
+            Let’s build something cool.
+          </div>
+          <div class="h-sub" style="padding-bottom: 8px">
+            Email:
+            <span class="accent">rsangeethroshan@gmail.com</span>
+          </div>
+          <div class="h-sub" style="padding-bottom: 8px">
+            LinkedIn:
+            <a
+              href="https://www.linkedin.com/in/sangeeth-roshan-5b159b34a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+              target="_blank"
+              class="accent"
+            >
+              Sangeeth Roshan (Click here!)
+            </a>
+          </div>
+          <div class="h-sub" style="padding-bottom: 8px">
+            GitHub:
+            <a
+              href="https://github.com/TrainerCheese"
+              target="_blank"
+              class="accent"
+            >
+              github.com/TrainerCheese
+            </a>
+          </div>
+        </div>
+        <div class="cta-row" style="align-items: flex-end; padding-top: 0">
+          <a class="btn primary" style="padding: 14px 24px" href="#top"
+            >Back to top ↑</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>Made with <span class="heart">❤️</span> & a bit of code.</div>
+      <div style="margin-top: 6px; font-size: 0.9rem">
+        © 2025 Sangeeth Roshan
+      </div>
+    </footer>
+
+    <script>
+      // =====================
+      // Scroll reveal
+      // =====================
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("show");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.18 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      // =====================
+      // Active dot nav
+      // =====================
+      const sections = [...document.querySelectorAll("header.hero, section")];
+      const dots = [...document.querySelectorAll(".dot")];
+      const secObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute("id") || "top";
+              dots.forEach((d) =>
+                d.classList.toggle(
+                  "active",
+                  d.getAttribute("href") === "#" + id
+                )
+              );
+            }
+          });
+        },
+        { threshold: 0.6 }
+      );
+      sections.forEach((s) => secObserver.observe(s));
+
+      // Nice keyboard nav between sections
+      window.addEventListener("keydown", (e) => {
+        if (["ArrowDown", "PageDown", "j"].includes(e.key)) step(1);
+        if (["ArrowUp", "PageUp", "k"].includes(e.key)) step(-1);
+      });
+      function step(dir) {
+        const ids = [
+          "top",
+          "about",
+          "education",
+          "leadership",
+          "achievements",
+          "sports",
+          // "mun", // removed
+          "projects",
+          "contact",
+        ];
+        const y = window.scrollY;
+        const pos = ids.map(
+          (id) => document.getElementById(id)?.getBoundingClientRect().top + y
+        );
+        const idx = pos.findIndex((p) => p > y + 10);
+        const cur = Math.max(0, idx - 1);
+        const next = Math.min(ids.length - 1, Math.max(0, cur + dir));
+        document
+          .getElementById(ids[next])
+          ?.scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>
