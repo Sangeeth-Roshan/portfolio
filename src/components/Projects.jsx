@@ -1,12 +1,96 @@
 import { PROJECTS } from "../config/projects";
 import { ArrowUpRight, GithubLogo } from "@phosphor-icons/react";
 
+const getWatermarkStyle = (id, accent) => {
+  let layout = {};
+
+  switch(id) {
+    case 'antidrop':
+      // ANTI_DROP: enormous diagonal/slightly rotated wordmark
+      layout = {
+        left: "45%", 
+        top: "40%",
+        transform: "translateY(-50%) rotate(-10deg)",
+        fontSize: "clamp(12rem, 16vw, 22rem)",
+        letterSpacing: "-0.04em",
+      };
+      break;
+    case 'unipect':
+      // UNIPECT: enormous horizontal wordmark, partially cropped
+      layout = {
+        left: "50%",
+        top: "55%",
+        transform: "translateY(-50%)",
+        fontSize: "clamp(14rem, 20vw, 26rem)",
+        letterSpacing: "-0.06em",
+      };
+      break;
+    case 'sros':
+      // SR.OS: oversized wordmark positioned lower/right
+      layout = {
+        left: "55%",
+        bottom: "-10%",
+        fontSize: "clamp(12rem, 18vw, 24rem)",
+        letterSpacing: "-0.08em",
+      };
+      break;
+    case 'libsync':
+      // LIBSYNC: oversized wordmark extending beyond the right edge
+      layout = {
+        left: "40%",
+        top: "45%",
+        transform: "translateY(-50%)",
+        fontSize: "clamp(15rem, 22vw, 28rem)",
+        letterSpacing: "0.01em",
+      };
+      break;
+    case 'unisolv':
+      layout = {
+        left: "45%",
+        top: "15%",
+        fontSize: "clamp(14rem, 20vw, 26rem)",
+        letterSpacing: "-0.05em",
+      };
+      break;
+    default:
+      layout = {
+        left: "55%",
+        top: "50%",
+        transform: "translateY(-50%) rotate(90deg)",
+        transformOrigin: "center left",
+        fontSize: "clamp(12rem, 16vw, 22rem)",
+        letterSpacing: "0.02em",
+      };
+  }
+
+  // 12% opacity black mixed with a 25% tint of the accent color for a sophisticated editorial watermark
+  const gradient = `linear-gradient(135deg, rgba(17,17,17,0.12) 0%, color-mix(in srgb, ${accent} 25%, rgba(17,17,17,0.05)) 100%)`;
+
+  return {
+    ...layout,
+    position: "absolute",
+    zIndex: 0,
+    pointerEvents: "none",
+    userSelect: "none",
+    whiteSpace: "nowrap",
+    fontWeight: 900,
+    fontFamily: "var(--font-display)",
+    color: "transparent",
+    background: gradient,
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    // Slight fade out towards the right edge
+    WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,1) 20%, rgba(0,0,0,0.1) 90%)",
+    maskImage: "linear-gradient(to right, rgba(0,0,0,1) 20%, rgba(0,0,0,0.1) 90%)",
+  };
+};
+
 export function Projects() {
   return (
-    <section id="projects" className="bg-[#F4F3EE] text-[#111111] border-t-2 border-[#111111]">
-      <div className="max-w-[1400px] mx-auto">
+    <section id="projects" className="bg-[#F4F3EE] text-[#111111] border-t-2 border-[#111111] relative overflow-hidden">
+      <div className="max-w-[1400px] mx-auto relative z-10">
         {/* ── Section Header ───────────────────────────────────────────── */}
-        <div className="px-6 md:px-16 py-20 md:py-32 border-b-2 border-[#111111]">
+        <div className="px-6 md:px-16 py-20 md:py-32 border-b-2 border-[#111111] bg-[#F4F3EE] relative z-20">
           <h2
             className="font-display font-extrabold tracking-tight uppercase leading-[0.9]"
             style={{ fontSize: "clamp(3rem, 8vw, 6rem)" }}
@@ -18,7 +102,6 @@ export function Projects() {
         </div>
 
         {/* ── Projects Grid ────────────────────────────────────────────── */}
-        {/* Using a flat list with heavy borders for an industrial feel */}
         <div className="flex flex-col">
           {PROJECTS.map((project, i) => (
             <article
@@ -29,8 +112,13 @@ export function Projects() {
                 border-b-2 border-[#111111] transition-colors duration-300
               `}
             >
+              {/* Background Wordmark */}
+              <div style={getWatermarkStyle(project.id, project.accent)} aria-hidden="true">
+                {project.title}
+              </div>
+
               {/* Left col: Title & Context */}
-              <div className="flex flex-col items-start">
+              <div className="flex flex-col items-start relative z-10">
                 <div 
                   className="px-4 py-1.5 mb-8 text-xs font-mono font-bold uppercase border-2 border-[#111111]"
                   style={{ backgroundColor: project.accent, color: '#111111' }}
@@ -43,7 +131,7 @@ export function Projects() {
               </div>
 
               {/* Middle col: Description & Features */}
-              <div className="flex flex-col gap-10 mt-2 lg:mt-0">
+              <div className="flex flex-col gap-10 mt-2 lg:mt-0 relative z-10">
                 <p className="text-lg md:text-xl font-medium leading-relaxed">
                   {project.description}
                 </p>
@@ -67,7 +155,7 @@ export function Projects() {
               </div>
 
               {/* Right col: Tags & Links */}
-              <div className="flex flex-col lg:items-end justify-between gap-8 lg:gap-0 mt-4 lg:mt-0">
+              <div className="flex flex-col lg:items-end justify-between gap-8 lg:gap-0 mt-4 lg:mt-0 relative z-10">
                 <div className="flex flex-wrap lg:justify-end gap-2">
                   {project.tags.map((tag) => (
                     <span 
