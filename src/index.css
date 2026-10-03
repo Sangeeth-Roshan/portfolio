@@ -8,6 +8,7 @@
   /* Fonts: Bricolage Grotesque (thick display) + JetBrains Mono */
   --font-display: "Bricolage Grotesque", sans-serif;
   --font-mono:    "JetBrains Mono", monospace;
+  --font-oswald:  "Oswald", sans-serif;
 
   /*
     Avatar accent colors — flat, loud, intentional.

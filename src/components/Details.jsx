@@ -4,13 +4,14 @@ export function Details() {
   return (
     <section className="bg-[#F4F3EE] text-[#111111] border-t-2 border-[#111111] flex flex-col overflow-hidden">
       {/* ── ROW 1 ────────────────────────────────────────────────────── */}
-      <div className="w-full border-b-2 border-[#111111]">
+      <div className="w-full border-b-2 border-[#111111] bg-[#111111] text-[#F4F3EE]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2">
           {/* Achievements */}
-          <div className="p-10 md:p-16 lg:p-24 lg:py-32 border-b-2 md:border-b-0 md:border-r-2 border-[#111111]">
-            <h2 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[-0.02em] mb-16">
+          <div className="p-10 pt-16 md:p-16 md:pt-24 lg:px-24 lg:pt-40 lg:pb-32 border-b-2 md:border-b-0 md:border-r-2 border-[#222222]">
+            <h2 className="font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[-0.02em]" style={{ fontFamily: 'var(--font-oswald)' }}>
               Achievements
             </h2>
+            <div style={{ height: '20px' }} />
             <ul className="flex flex-col gap-4">
               {[
                 "Smart India Hackathon 2026: Round 2 qualifier (freshman year)",
@@ -29,10 +30,11 @@ export function Details() {
           </div>
 
           {/* Leadership */}
-          <div className="p-10 md:p-16 lg:p-24 lg:py-32">
-            <h2 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[-0.02em] mb-16">
+          <div className="p-10 pt-16 md:p-16 md:pt-24 lg:px-24 lg:pt-40 lg:pb-32">
+            <h2 className="font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[-0.02em]" style={{ fontFamily: 'var(--font-oswald)' }}>
               Leadership
             </h2>
+            <div style={{ height: '20px' }} />
             <ul className="flex flex-col gap-4">
               {[
                 "Assistant Sports Secretary, student council member, class leader",
