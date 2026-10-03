@@ -6,42 +6,42 @@ const getWatermarkStyle = (id, accent) => {
 
   switch(id) {
     case 'antidrop':
-      // AntiDROP: massive horizontal
+      // AntiDROP: extremely massive, displaced right
       layout = {
-        right: "-10%",
+        right: "-35%",
         top: "50%",
         transform: "translateY(-50%)",
-        fontSize: "clamp(10rem, 18vw, 22rem)",
+        fontSize: "clamp(20rem, 35vw, 50rem)",
         letterSpacing: "-0.02em",
       };
       break;
     case 'unipect':
-      // UNIPECT: massive horizontal
+      // UNIPECT: massive horizontal, highly readable
       layout = {
-        right: "-10%",
+        right: "-15%",
         top: "50%",
         transform: "translateY(-50%)",
-        fontSize: "clamp(12rem, 20vw, 26rem)",
+        fontSize: "clamp(14rem, 24vw, 32rem)",
         letterSpacing: "-0.04em",
       };
       break;
     case 'libsync':
-      // LibSync: massive horizontal
+      // LibSync: massive horizontal, highly readable
       layout = {
-        right: "-10%",
+        right: "-15%",
         top: "50%",
         transform: "translateY(-50%)",
-        fontSize: "clamp(12rem, 20vw, 26rem)",
+        fontSize: "clamp(14rem, 24vw, 32rem)",
         letterSpacing: "-0.02em",
       };
       break;
     case 'unisolv':
-      // UniSOLV: massive horizontal
+      // UniSOLV: hyper massive, pulled slightly left
       layout = {
-        right: "-10%",
+        right: "-25%",
         top: "50%",
         transform: "translateY(-50%)",
-        fontSize: "clamp(12rem, 20vw, 26rem)",
+        fontSize: "clamp(22rem, 38vw, 55rem)",
         letterSpacing: "-0.03em",
       };
       break;
@@ -114,7 +114,7 @@ export function Projects() {
                   >
                     {String(i + 1).padStart(2, "0")} / {project.context}
                   </div>
-                  <h3 className="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
+                  <h3 className="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl tracking-[-0.02em] leading-[0.95]">
                     {project.title}
                   </h3>
                 </div>

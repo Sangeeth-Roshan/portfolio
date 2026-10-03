@@ -5,7 +5,7 @@
 export const PROJECTS = [
   {
     id: "unisolv",
-    title: "UniSOLV",
+    title: "UniSolV",
     context: "Smart India Hackathon 2026, team 404 Decoders",
     description: "Civic problem-solving platform connecting citizens, government, universities and companies. Built around real Indian problems (potholes, flooding, infrastructure, civic complaints). Citizens submit issues; an AI layer classifies them and routes them to a suitable university or company; officials review and pass them to student groups or specialists, who propose solutions.",
     features: ["Reputation/trust score", "Escalation/SLA mechanism", "Geo-clustering of issues", "IP/credit governance", "Voice-based submissions"],
@@ -38,7 +38,7 @@ export const PROJECTS = [
   },
   {
     id: "libsync",
-    title: "LibSync",
+    title: "LibSYNC",
     context: "Library Management",
     description: "Python library management system backed by MySQL: book issuing, returning and bill generation.",
     features: [],
