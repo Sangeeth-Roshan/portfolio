@@ -4,7 +4,7 @@ const TIMELINE = [
   { year: "2024", title: "Class 12", desc: "Amrita Vidyalayam (92.4%). Highest marks in CS." },
   { year: "2026", title: "B.Tech CSE", desc: "Joined Shiv Nadar University Chennai (Cyber Security spec)." },
   { year: "2026", title: "Hackathons", desc: "Started competing. SIH 2026 Round 2 qualifier." },
-  { year: "2026", title: "Projects", desc: "Shipped UniSOLV, Anti_Drop, UNIPECT, LibSync & more." },
+  { year: "2026", title: "Projects", desc: "Shipped UniSOLV, AntiDROP, UNIPECT & LibSync." },
   { year: "Now", title: "Cybersecurity", desc: "Exploring CTFs, Kali Linux, and active directory." },
 ];
 

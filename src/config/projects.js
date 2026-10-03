@@ -16,7 +16,7 @@ export const PROJECTS = [
   },
   {
     id: "antidrop",
-    title: "Anti_Drop",
+    title: "AntiDROP",
     context: "Student-dropout intervention",
     description: "Causal ML platform for early student-dropout intervention: it estimates which intervention would change a student's outcome, not just who is at risk.",
     features: ["Dropout prediction (Random Forest)", "SHAP explainability", "Causal effect estimation of scholarships (DoWhy + EconML)", "Cohort overview & student risk views", "Causal policy simulator"],
@@ -37,17 +37,6 @@ export const PROJECTS = [
     accent: "#003CFF", // Pure Cobalt
   },
   {
-    id: "sros",
-    title: "SR.OS",
-    context: "In development",
-    description: "Personal student operating system: academic tracker, to-do system driven by email, AI assistant, daily dashboard.",
-    features: ["Single-user Next.js PWA", "Works on laptop and phone"],
-    role: null,
-    tags: ["Next.js", "PWA", "Productivity"],
-    repo: null,
-    accent: "#FF1F6E", // Hot Fuchsia
-  },
-  {
     id: "libsync",
     title: "LibSync",
     context: "Library Management",
@@ -57,16 +46,5 @@ export const PROJECTS = [
     tags: ["Python", "MySQL", "Database"],
     repo: "https://github.com/Sangeeth-Roshan/LibSync",
     accent: "#C8FF00", // Acid Lime
-  },
-  {
-    id: "slaynet",
-    title: "SlayNet",
-    context: "Agency Concept",
-    description: "Premium web/app agency concept helping businesses increase sales through better digital experiences. Web design, frontend, GSAP animation, interactive UI, branding.",
-    features: [],
-    role: null,
-    tags: ["Web Design", "GSAP", "Frontend", "Branding"],
-    repo: null,
-    accent: "#003CFF", // Pure Cobalt
   }
 ];

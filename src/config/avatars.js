@@ -25,7 +25,7 @@ export const AVATARS = [
     proofs: [
       "Smart India Hackathon 2026 - Round 2 qualifier (freshman year)",
       "SNUC Internal Hackathon 2026",
-      "6 shipped projects: UniSOLV, Anti_Drop, UNIPECT, SR.OS, LibSync, SlayNet",
+      "4 shipped projects: UniSOLV, AntiDROP, UNIPECT, LibSync",
       "Currently exploring: CTF, web recon, Kali Linux, Active Directory",
     ],
     skills: ["React", "Python", "TensorFlow", "GSAP", "Linux", "Next.js"],
@@ -90,7 +90,7 @@ export const AVATARS = [
     ink: "#F4F3EE",
     accent: "#F4F3EE",
     proofs: [
-      "SlayNet - web/app agency concept built around GSAP animation and interactive UI",
+      "Web/app concepts built around GSAP animation and interactive UI",
       "Hackathon team branding and logos (404 Decoders, SIH 2026)",
       "Video concepts and UI direction for UniSOLV",
       "Product and UI direction across 3 shipped projects",
