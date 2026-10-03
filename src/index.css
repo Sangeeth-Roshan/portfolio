@@ -1,0 +1,77 @@
+/* ─────────────────────────────────────────────
+   Sangeeth Roshan Portfolio - Global Styles
+   ───────────────────────────────────────────── */
+@import "tailwindcss";
+
+/* ── Design Tokens ── */
+@theme {
+  /* Fonts: Bricolage Grotesque (thick display) + JetBrains Mono */
+  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-mono:    "JetBrains Mono", monospace;
+
+  /*
+    Avatar accent colors — flat, loud, intentional.
+    NOT: AI-purple gradients, dark navy glows, warm beige+brass.
+    Each becomes the slide background in the horizontal pan.
+  */
+  --color-avatar-hacker:   #C8FF00;   /* Acid Lime       */
+  --color-avatar-leader:   #FF3300;   /* Signal Red      */
+  --color-avatar-athlete:  #003CFF;   /* Pure Cobalt     */
+  --color-avatar-musician: #1A1A1A;   /* Near-Black      */
+  --color-avatar-designer: #FF1F6E;   /* Hot Fuchsia     */
+
+  /* Surface */
+  --color-surface: #F4F3EE;           /* warm off-white, NOT cream/beige */
+  --color-ink:     #111111;           /* near-black                      */
+  --color-mid:     #6B6B6B;           /* secondary text                  */
+  --color-line:    #D4D3CE;           /* dividers                        */
+}
+
+/* ── Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Prevent horizontal overflow leaking outside pinned GSAP sections */
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: var(--color-ink);
+  color: var(--color-surface);
+}
+
+/* ── Focus rings (accessible, high-contrast) ── */
+:focus-visible {
+  outline: 2.5px solid var(--color-ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #999; border-radius: 3px; }
+
+/* ── Reduced motion: kill everything ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

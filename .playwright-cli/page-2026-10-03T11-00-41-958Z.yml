@@ -1,0 +1,335 @@
+- generic [ref=f16e2]:
+  - banner [ref=f16e3]:
+    - navigation [ref=f16e5]:
+      - generic [ref=f16e6]: S.R.
+      - tablist "Avatar navigation" [ref=f16e7]:
+        - tab "Hacker / Builder" [selected] [ref=f16e8]
+        - tab "Leader / Speaker" [ref=f16e9]
+        - tab "Athlete" [ref=f16e10]
+        - tab "Musician" [ref=f16e11]
+        - tab "Designer" [ref=f16e12]
+      - generic [ref=f16e14]:
+        - link "GitHub" [ref=f16e15] [cursor=pointer]:
+          - /url: https://github.com/Sangeeth-Roshan
+        - link "LinkedIn" [ref=f16e18] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/rsangeethroshan/
+  - region "Introduction" [ref=f16e21]:
+    - heading "Sangeeth Roshan." [level=1] [ref=f16e23]: SangeethRoshan.
+    - generic "Identities" [ref=f16e24]:
+      - generic [ref=f16e25]:
+        - generic [ref=f16e26]: Builder
+        - generic [ref=f16e27]: Hacker
+        - generic [ref=f16e28]: Leader
+        - generic [ref=f16e29]: Speaker
+        - generic [ref=f16e30]: Athlete
+        - generic [ref=f16e31]: Musician
+        - generic [ref=f16e32]: Designer
+        - generic [ref=f16e33]: Builder
+        - generic [ref=f16e34]: Hacker
+        - generic [ref=f16e35]: Leader
+        - generic [ref=f16e36]: Speaker
+        - generic [ref=f16e37]: Athlete
+        - generic [ref=f16e38]: Musician
+        - generic [ref=f16e39]: Designer
+    - paragraph [ref=f16e40]: First-year CSE (Cyber Security) student at SNU Chennai. One person, many modes.
+    - generic [ref=f16e41]:
+      - button "See the avatars" [ref=f16e42]
+      - link "Say hello" [ref=f16e45] [cursor=pointer]:
+        - /url: mailto:rsangeethroshan@gmail.com
+    - generic [ref=f16e46]:
+      - generic [ref=f16e47]: B.Tech CSE
+      - generic [aria-hidden] [ref=f16e48]: "-"
+      - generic [ref=f16e49]: SNU Chennai
+      - generic [aria-hidden] [ref=f16e50]: "-"
+      - generic [ref=f16e51]: Batch of 2026
+  - region "Avatar sections" [ref=f16e53]:
+    - generic [ref=f16e54]:
+      - generic "Hacker / Builder section" [ref=f16e55]:
+        - generic [ref=f16e56]:
+          - generic [ref=f16e57]: 01 / 05
+          - heading "Hacker & Builder" [level=2] [ref=f16e58]:
+            - generic [ref=f16e59]: Hacker
+            - generic [ref=f16e60]: "& Builder"
+          - paragraph [ref=f16e61]: Ships platforms. Breaks problems.
+          - generic [ref=f16e62]:
+            - generic [ref=f16e63]: React
+            - generic [ref=f16e64]: Python
+            - generic [ref=f16e65]: TensorFlow
+            - generic [ref=f16e66]: GSAP
+            - generic [ref=f16e67]: Linux
+            - generic [ref=f16e68]: Next.js
+        - list "Evidence" [ref=f16e71]:
+          - listitem [ref=f16e72]:
+            - generic [ref=f16e75]: Smart India Hackathon 2026 - Round 2 qualifier (freshman year)
+          - listitem [ref=f16e76]:
+            - generic [ref=f16e79]: SNUC Internal Hackathon 2026
+          - listitem [ref=f16e80]:
+            - generic [ref=f16e83]: "6 shipped projects: UniSOLV, Anti_Drop, UNIPECT, SR.OS, LibSync, SlayNet"
+          - listitem [ref=f16e84]:
+            - generic [ref=f16e87]: "Currently exploring: CTF, web recon, Kali Linux, Active Directory"
+      - generic "Leader / Speaker section" [ref=f16e88]:
+        - generic [ref=f16e89]:
+          - generic [ref=f16e90]: 02 / 05
+          - heading "Leader & Speaker" [level=2] [ref=f16e91]:
+            - generic [ref=f16e92]: Leader
+            - generic [ref=f16e93]: "& Speaker"
+          - paragraph [ref=f16e94]: Represents. Decides. Moves rooms.
+          - generic [ref=f16e95]:
+            - generic [ref=f16e96]: Public Speaking
+            - generic [ref=f16e97]: MUN
+            - generic [ref=f16e98]: Team Leadership
+            - generic [ref=f16e99]: Strategy
+        - list "Evidence" [ref=f16e102]:
+          - listitem [ref=f16e103]:
+            - generic [ref=f16e106]: Assistant Sports Secretary, SNU Chennai student council
+          - listitem [ref=f16e107]:
+            - generic [ref=f16e110]: AVMUN'25 AIPPM - second-highest commendation, represented M.K. Stalin
+          - listitem [ref=f16e111]:
+            - generic [ref=f16e114]: Class leader and team captain in multiple hackathons
+          - listitem [ref=f16e115]:
+            - generic [ref=f16e118]: Represented school in MUN, cultural events, and sports
+      - generic "Athlete section" [ref=f16e119]:
+        - generic [ref=f16e120]:
+          - generic [ref=f16e121]: 03 / 05
+          - heading "Athlete" [level=2] [ref=f16e122]
+          - paragraph [ref=f16e124]: Football. Badminton. Multiple trophies.
+          - generic [ref=f16e125]:
+            - generic [ref=f16e126]: Football
+            - generic [ref=f16e127]: Badminton
+            - generic [ref=f16e128]: Discipline
+            - generic [ref=f16e129]: Teamwork
+        - list "Evidence" [ref=f16e132]:
+          - listitem [ref=f16e133]:
+            - generic [ref=f16e136]: Multiple school trophies in football
+          - listitem [ref=f16e137]:
+            - generic [ref=f16e140]: Multiple school trophies in badminton
+          - listitem [ref=f16e141]:
+            - generic [ref=f16e144]: Assistant Sports Secretary at SNU Chennai
+          - listitem [ref=f16e145]:
+            - generic [ref=f16e148]: Competed across school and university levels
+      - generic "Musician section" [ref=f16e149]:
+        - generic [ref=f16e150]:
+          - generic [ref=f16e151]: 04 / 05
+          - heading "Musician" [level=2] [ref=f16e152]
+          - paragraph [ref=f16e154]: Keys, stage, and a world record.
+          - generic [ref=f16e155]:
+            - generic [ref=f16e156]: Keyboard
+            - generic [ref=f16e157]: Performance
+            - generic [ref=f16e158]: Stage Presence
+        - list "Evidence" [ref=f16e161]:
+          - listitem [ref=f16e162]:
+            - generic [ref=f16e165]: Asia Book of Records - largest electronic keyboard ensemble, 1 May 2023
+          - listitem [ref=f16e166]:
+            - generic [ref=f16e169]: School dramas and cultural event performances
+          - listitem [ref=f16e170]:
+            - generic [ref=f16e173]: Keyboard player across multiple stage productions
+      - generic "Designer section" [ref=f16e174]:
+        - generic [ref=f16e175]:
+          - generic [ref=f16e176]: 05 / 05
+          - heading "Designer" [level=2] [ref=f16e177]
+          - paragraph [ref=f16e179]: Brands, UI, and motion with intention.
+          - generic [ref=f16e180]:
+            - generic [ref=f16e181]: UI Design
+            - generic [ref=f16e182]: Branding
+            - generic [ref=f16e183]: GSAP
+            - generic [ref=f16e184]: Motion
+        - list "Evidence" [ref=f16e187]:
+          - listitem [ref=f16e188]:
+            - generic [ref=f16e191]: SlayNet - web/app agency concept built around GSAP animation and interactive UI
+          - listitem [ref=f16e192]:
+            - generic [ref=f16e195]: Hackathon team branding and logos (404 Decoders, SIH 2026)
+          - listitem [ref=f16e196]:
+            - generic [ref=f16e199]: Video concepts and UI direction for UniSOLV
+          - listitem [ref=f16e200]:
+            - generic [ref=f16e203]: Product and UI direction across 3 shipped projects
+  - generic [ref=f16e211]:
+    - heading "Featured Projects" [level=2] [ref=f16e213]: FeaturedProjects
+    - generic [ref=f16e214]:
+      - article [ref=f16e215]:
+        - generic [ref=f16e216]:
+          - generic [ref=f16e217]: 01 / Smart India Hackathon 2026, team 404 Decoders
+          - heading "UniSOLV" [level=3] [ref=f16e218]
+        - generic [ref=f16e219]:
+          - paragraph [ref=f16e220]: Civic problem-solving platform connecting citizens, government, universities and companies. Built around real Indian problems (potholes, flooding, infrastructure, civic complaints). Citizens submit issues; an AI layer classifies them and routes them to a suitable university or company; officials review and pass them to student groups or specialists, who propose solutions.
+          - list [ref=f16e221]:
+            - listitem [ref=f16e222]:
+              - generic [ref=f16e224]: Reputation/trust score
+            - listitem [ref=f16e225]:
+              - generic [ref=f16e227]: Escalation/SLA mechanism
+            - listitem [ref=f16e228]:
+              - generic [ref=f16e230]: Geo-clustering of issues
+            - listitem [ref=f16e231]:
+              - generic [ref=f16e233]: IP/credit governance
+            - listitem [ref=f16e234]:
+              - generic [ref=f16e236]: Voice-based submissions
+          - paragraph [ref=f16e237]: "Role: Technical implementation plus product/UI direction. AI layer can switch between a live LLM API and a cached/demo dataset."
+        - generic [ref=f16e239]:
+          - generic [ref=f16e240]: Responsive Web App
+          - generic [ref=f16e241]: AI Classification
+          - generic [ref=f16e242]: UI/UX
+      - article [ref=f16e243]:
+        - generic [ref=f16e244]:
+          - generic [ref=f16e245]: 02 / Student-dropout intervention
+          - heading "Anti_Drop" [level=3] [ref=f16e246]
+        - generic [ref=f16e247]:
+          - paragraph [ref=f16e248]: "Causal ML platform for early student-dropout intervention: it estimates which intervention would change a student's outcome, not just who is at risk."
+          - list [ref=f16e249]:
+            - listitem [ref=f16e250]:
+              - generic [ref=f16e252]: Dropout prediction (Random Forest)
+            - listitem [ref=f16e253]:
+              - generic [ref=f16e255]: SHAP explainability
+            - listitem [ref=f16e256]:
+              - generic [ref=f16e258]: Causal effect estimation of scholarships (DoWhy + EconML)
+            - listitem [ref=f16e259]:
+              - generic [ref=f16e261]: Cohort overview & student risk views
+            - listitem [ref=f16e262]:
+              - generic [ref=f16e264]: Causal policy simulator
+          - paragraph [ref=f16e265]: "Role: Rebuilding originally Streamlit app with a React frontend."
+        - generic [ref=f16e267]:
+          - generic [ref=f16e268]: Machine Learning
+          - generic [ref=f16e269]: Causal Inference
+          - generic [ref=f16e270]: React
+          - generic [ref=f16e271]: Python
+      - article [ref=f16e272]:
+        - generic [ref=f16e273]:
+          - generic [ref=f16e274]: 03 / School expo project
+          - heading "UNIPECT" [level=3] [ref=f16e275]
+        - generic [ref=f16e276]:
+          - paragraph [ref=f16e277]: Real-time two-stage computer vision system that checks school uniform compliance, then ID card presence, from a live webcam feed.
+          - list [ref=f16e278]:
+            - listitem [ref=f16e279]:
+              - generic [ref=f16e281]: Averages confidence across 5 frames
+            - listitem [ref=f16e282]:
+              - generic [ref=f16e284]: GUI mode and headless CLI mode
+        - generic [ref=f16e285]:
+          - generic [ref=f16e286]:
+            - generic [ref=f16e287]: Python
+            - generic [ref=f16e288]: TensorFlow/Keras
+            - generic [ref=f16e289]: OpenCV
+            - generic [ref=f16e290]: Tkinter
+            - generic [ref=f16e291]: MobileNet
+          - link "View Repo" [ref=f16e292] [cursor=pointer]:
+            - /url: https://github.com/Sangeeth-Roshan/UNIPECT
+      - article [ref=f16e297]:
+        - generic [ref=f16e298]:
+          - generic [ref=f16e299]: 04 / In development
+          - heading "SR.OS" [level=3] [ref=f16e300]
+        - generic [ref=f16e301]:
+          - paragraph [ref=f16e302]: "Personal student operating system: academic tracker, to-do system driven by email, AI assistant, daily dashboard."
+          - list [ref=f16e303]:
+            - listitem [ref=f16e304]:
+              - generic [ref=f16e306]: Single-user Next.js PWA
+            - listitem [ref=f16e307]:
+              - generic [ref=f16e309]: Works on laptop and phone
+        - generic [ref=f16e311]:
+          - generic [ref=f16e312]: Next.js
+          - generic [ref=f16e313]: PWA
+          - generic [ref=f16e314]: Productivity
+      - article [ref=f16e315]:
+        - generic [ref=f16e316]:
+          - generic [ref=f16e317]: 05 / Library Management
+          - heading "LibSync" [level=3] [ref=f16e318]
+        - paragraph [ref=f16e320]: "Python library management system backed by MySQL: book issuing, returning and bill generation."
+        - generic [ref=f16e321]:
+          - generic [ref=f16e322]:
+            - generic [ref=f16e323]: Python
+            - generic [ref=f16e324]: MySQL
+            - generic [ref=f16e325]: Database
+          - link "View Repo" [ref=f16e326] [cursor=pointer]:
+            - /url: https://github.com/Sangeeth-Roshan/LibSync
+      - article [ref=f16e331]:
+        - generic [ref=f16e332]:
+          - generic [ref=f16e333]: 06 / Agency Concept
+          - heading "SlayNet" [level=3] [ref=f16e334]
+        - paragraph [ref=f16e336]: Premium web/app agency concept helping businesses increase sales through better digital experiences. Web design, frontend, GSAP animation, interactive UI, branding.
+        - generic [ref=f16e338]:
+          - generic [ref=f16e339]: Web Design
+          - generic [ref=f16e340]: GSAP
+          - generic [ref=f16e341]: Frontend
+          - generic [ref=f16e342]: Branding
+  - generic [ref=f16e344]:
+    - generic [ref=f16e345]:
+      - heading "Achievements" [level=2] [ref=f16e346]
+      - list [ref=f16e347]:
+        - listitem [ref=f16e348]:
+          - generic [ref=f16e350]: "Smart India Hackathon 2026: Round 2 qualifier (freshman year)"
+        - listitem [ref=f16e351]:
+          - generic [ref=f16e353]: SNUC Internal Hackathon 2026
+        - listitem [ref=f16e354]:
+          - generic [ref=f16e356]: "Asia Book of Records: largest electronic keyboard ensemble"
+        - listitem [ref=f16e357]:
+          - generic [ref=f16e359]: "AVMUN'25 (AIPPM): delegate representing M.K. Stalin, 2nd highest commendation"
+        - listitem [ref=f16e360]:
+          - generic [ref=f16e362]: Highest marks in Computer Science, Class 11
+        - listitem [ref=f16e363]:
+          - generic [ref=f16e365]: Multiple school trophies in football and badminton
+    - generic [ref=f16e366]:
+      - heading "Leadership" [level=2] [ref=f16e367]
+      - list [ref=f16e368]:
+        - listitem [ref=f16e369]:
+          - generic [ref=f16e371]: Assistant Sports Secretary, student council member, class leader
+        - listitem [ref=f16e372]:
+          - generic [ref=f16e374]: Technical and team contributions in college hackathon teams
+        - listitem [ref=f16e375]:
+          - generic [ref=f16e377]: Represented class, school and teams in cultural, sports, MUN and hackathon settings
+    - generic [ref=f16e378]:
+      - heading "Cybersecurity" [level=2] [ref=f16e379]
+      - paragraph [ref=f16e380]: "[ Currently Exploring ]"
+      - generic [ref=f16e381]:
+        - generic [ref=f16e382]: Kali Linux
+        - generic [ref=f16e383]: TryHackMe
+        - generic [ref=f16e384]: CTF practice
+        - generic [ref=f16e385]: Web Reconnaissance
+        - generic [ref=f16e386]: Subdomain Enumeration (ffuf)
+        - generic [ref=f16e387]: Linux Security Tooling
+        - generic [ref=f16e388]: Active Directory
+    - generic [ref=f16e390]:
+      - heading "Beyond Code" [level=2] [ref=f16e391]
+      - generic [ref=f16e392]:
+        - generic [ref=f16e393]: Football
+        - generic [ref=f16e394]: Badminton
+        - generic [ref=f16e395]: School Dramas
+        - generic [ref=f16e396]: Cultural Events
+        - generic [ref=f16e397]: Keyboard / Music
+        - generic [ref=f16e398]: MUN
+        - generic [ref=f16e399]: Team Branding
+        - generic [ref=f16e400]: Hackathon Logos
+        - generic [ref=f16e401]: Video Concepts
+  - generic [ref=f16e403]:
+    - heading "The Journey" [level=2] [ref=f16e404]
+    - generic [ref=f16e405]:
+      - generic [ref=f16e406]:
+        - text: "2024"
+        - heading "Class 12" [level=3] [ref=f16e408]
+        - paragraph [ref=f16e409]: Amrita Vidyalayam (92.4%). Highest marks in CS.
+      - generic [ref=f16e410]:
+        - text: "2026"
+        - heading "B.Tech CSE" [level=3] [ref=f16e412]
+        - paragraph [ref=f16e413]: Joined Shiv Nadar University Chennai (Cyber Security spec).
+      - generic [ref=f16e414]:
+        - text: "2026"
+        - heading "Hackathons" [level=3] [ref=f16e416]
+        - paragraph [ref=f16e417]: Started competing. SIH 2026 Round 2 qualifier.
+      - generic [ref=f16e418]:
+        - text: "2026"
+        - heading "Projects" [level=3] [ref=f16e420]
+        - paragraph [ref=f16e421]: Shipped UniSOLV, Anti_Drop, UNIPECT, LibSync & more.
+      - generic [ref=f16e422]:
+        - text: Now
+        - heading "Cybersecurity" [level=3] [ref=f16e424]
+        - paragraph [ref=f16e425]: Exploring CTFs, Kali Linux, and active directory.
+  - contentinfo [ref=f16e426]:
+    - generic [ref=f16e427]:
+      - heading "Let's build something." [level=2] [ref=f16e428]: Let's buildsomething.
+      - paragraph [ref=f16e429]: Currently open for hackathon teams, open-source collaboration, and interesting conversations.
+      - generic [ref=f16e430]:
+        - link "rsangeethroshan@gmail.com" [ref=f16e431] [cursor=pointer]:
+          - /url: mailto:rsangeethroshan@gmail.com
+        - generic [ref=f16e438]:
+          - link "GitHub" [ref=f16e439] [cursor=pointer]:
+            - /url: https://github.com/Sangeeth-Roshan
+          - link "LinkedIn" [ref=f16e442] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/rsangeethroshan/
+    - generic [ref=f16e446]:
+      - generic [ref=f16e447]: © 2026 Sangeeth Roshan
+      - generic [ref=f16e448]: Designed & Built with React + GSAP
