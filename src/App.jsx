@@ -8,6 +8,7 @@ import { Nav }               from "./components/Nav";
 import { Hero }              from "./components/Hero";
 import { AvatarHorizontal } from "./components/AvatarHorizontal";
 import { Projects } from "./components/Projects";
+import { MarqueeBanner } from "./components/MarqueeBanner";
 import { Details } from "./components/Details";
 import { TimelineContact } from "./components/TimelineContact";
 import { AVATARS, DEFAULT_AVATAR } from "./config/avatars";
@@ -50,7 +51,7 @@ function App() {
       <AvatarHorizontal onActiveChange={handleActiveChange} />
 
       <Projects />
-
+      <MarqueeBanner />
       <Details />
       <TimelineContact />
     </>

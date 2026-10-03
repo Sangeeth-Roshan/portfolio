@@ -1,3 +1,5 @@
+import { CaretRight } from "@phosphor-icons/react";
+
 export function Details() {
   return (
     <section className="bg-[#F4F3EE] text-[#111111] border-t-2 border-[#111111]">
@@ -7,7 +9,7 @@ export function Details() {
           <h2 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[-0.02em] mb-16">
             Achievements
           </h2>
-          <ul className="flex flex-col gap-8">
+          <ul className="flex flex-col gap-4">
             {[
               "Smart India Hackathon 2026: Round 2 qualifier (freshman year)",
               "SNUC Internal Hackathon 2026",
@@ -16,9 +18,9 @@ export function Details() {
               "Highest marks in Computer Science, Class 11",
               "Multiple school trophies in football and badminton"
             ].map((item, i) => (
-              <li key={i} className="flex items-start gap-4">
-                <span className="shrink-0 mt-2.5 w-1.5 h-1.5 bg-[#FF3300]" />
-                <span className="flex-1 text-base md:text-lg font-medium leading-relaxed">{item}</span>
+              <li key={i} className="flex items-start gap-3">
+                <CaretRight size={20} weight="bold" className="shrink-0 text-[#FF3300] mt-0.5" />
+                <span className="flex-1 text-base md:text-lg font-medium leading-snug">{item}</span>
               </li>
             ))}
           </ul>
@@ -29,15 +31,15 @@ export function Details() {
           <h2 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[-0.02em] mb-16">
             Leadership
           </h2>
-          <ul className="flex flex-col gap-8">
+          <ul className="flex flex-col gap-4">
             {[
               "Assistant Sports Secretary, student council member, class leader",
               "Technical and team contributions in college hackathon teams",
               "Represented class, school and teams in cultural, sports, MUN and hackathon settings"
             ].map((item, i) => (
-              <li key={i} className="flex items-start gap-4">
-                <span className="shrink-0 mt-2.5 w-1.5 h-1.5 bg-[#003CFF]" />
-                <span className="flex-1 text-base md:text-lg font-medium leading-relaxed">{item}</span>
+              <li key={i} className="flex items-start gap-3">
+                <CaretRight size={20} weight="bold" className="shrink-0 text-[#003CFF] mt-0.5" />
+                <span className="flex-1 text-base md:text-lg font-medium leading-snug">{item}</span>
               </li>
             ))}
           </ul>
