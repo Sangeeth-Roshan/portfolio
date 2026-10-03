@@ -1,8 +1,8 @@
-import { CaretRight } from "@phosphor-icons/react";
+import { CaretRight, SoccerBall, FilmStrip, MusicNotes, PenNib, MaskHappy, UsersThree, PaintBrush, MicrophoneStage, VideoCamera, Megaphone } from "@phosphor-icons/react";
 
 export function Details() {
   return (
-    <section className="bg-[#F4F3EE] text-[#111111] border-t-2 border-[#111111] flex flex-col">
+    <section className="bg-[#F4F3EE] text-[#111111] border-t-2 border-[#111111] flex flex-col overflow-hidden">
       {/* ── ROW 1 ────────────────────────────────────────────────────── */}
       <div className="w-full border-b-2 border-[#111111]">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2">
@@ -72,18 +72,57 @@ export function Details() {
             </div>
           </div>
 
-          {/* Beyond Code */}
-          <div className="p-10 md:p-16 lg:p-24 lg:py-32 flex flex-col gap-16">
-            <div>
-              <h2 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[-0.02em] mb-16">
-                Beyond Code
+          {/* Life Beyond Code */}
+          <div className="p-10 md:p-16 lg:p-24 lg:py-32 flex flex-col gap-16 relative z-0">
+            
+            {/* Background bleed container */}
+            <div className="absolute inset-0 md:-right-[50vw] bg-gradient-to-br from-[#FFDEE9] to-[#B5FFFC] z-0 overflow-hidden flex flex-col justify-center gap-16">
+              
+              {/* Marquee Vectors Row 1 */}
+              <div className="flex w-max animate-marquee opacity-15" style={{ animationDuration: '50s' }}>
+                {[...Array(4)].map((_, i) => (
+                  <div key={i} className="flex gap-24 pr-24 items-center text-[#111111]">
+                    <SoccerBall size={100} weight="duotone" />
+                    <MaskHappy size={100} weight="duotone" />
+                    <MusicNotes size={100} weight="duotone" />
+                    <Megaphone size={100} weight="duotone" />
+                    <PaintBrush size={100} weight="duotone" />
+                  </div>
+                ))}
+              </div>
+
+              {/* Marquee Vectors Row 2 (Reverse) */}
+              <div className="flex w-max animate-marquee opacity-15" style={{ animationDuration: '40s', animationDirection: 'reverse' }}>
+                {[...Array(4)].map((_, i) => (
+                  <div key={i} className="flex gap-24 pr-24 items-center text-[#111111]">
+                    <VideoCamera size={100} weight="duotone" />
+                    <UsersThree size={100} weight="duotone" />
+                    <FilmStrip size={100} weight="duotone" />
+                    <PenNib size={100} weight="duotone" />
+                    <MicrophoneStage size={100} weight="duotone" />
+                  </div>
+                ))}
+              </div>
+
+              {/* Abstract decorative blobs */}
+              <div className="absolute top-0 right-[25vw] w-64 h-64 bg-[#FF9A9E] opacity-30 blur-3xl rounded-full mix-blend-multiply pointer-events-none transform translate-x-1/2 -translate-y-1/2" />
+              <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#a18cd1] opacity-30 blur-3xl rounded-full mix-blend-multiply pointer-events-none transform -translate-x-1/2 translate-y-1/2" />
+            </div>
+
+            {/* Foreground Content */}
+            <div className="relative z-10">
+              <h2 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[-0.02em] mb-16 text-[#111111]">
+                Life Beyond Code
               </h2>
               <div className="flex flex-wrap lg:justify-center gap-4">
                 {[
                   "Football", "Badminton", "School Dramas", "Cultural Events",
                   "Keyboard / Music", "MUN", "Team Branding", "Hackathon Logos", "Video Concepts"
                 ].map((item, i) => (
-                  <span key={i} className="px-5 py-3 text-sm md:text-base font-mono font-bold uppercase border-2 border-[#111111] hover:bg-[#FF1F6E] hover:text-[#F4F3EE] hover:border-[#FF1F6E] transition-colors cursor-default">
+                  <span 
+                    key={i} 
+                    className="px-5 py-3 text-sm md:text-base font-mono font-bold uppercase border border-white/50 bg-white/40 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.04)] hover:bg-white/80 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all cursor-default text-[#111111] rounded-xl"
+                  >
                     {item}
                   </span>
                 ))}
