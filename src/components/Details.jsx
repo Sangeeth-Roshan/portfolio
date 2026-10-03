@@ -1,4 +1,4 @@
-import { CaretRight, SoccerBall, FilmStrip, MusicNotes, PenNib, MaskHappy, UsersThree, PaintBrush, MicrophoneStage, VideoCamera, Megaphone } from "@phosphor-icons/react";
+import { CaretRight, SoccerBall, FilmStrip, MusicNotes, Camera, PersonSimpleRun } from "@phosphor-icons/react";
 
 export function Details() {
   return (
@@ -76,30 +76,17 @@ export function Details() {
           <div className="p-10 md:p-16 lg:p-24 lg:py-32 flex flex-col gap-16 relative z-0">
             
             {/* Background bleed container */}
-            <div className="absolute inset-0 md:-right-[50vw] bg-gradient-to-br from-[#FFDEE9] to-[#B5FFFC] z-0 overflow-hidden flex flex-col justify-center gap-16">
+            <div className="absolute inset-0 md:-right-[50vw] bg-gradient-to-br from-[#FFDEE9] to-[#B5FFFC] z-0 overflow-hidden flex flex-col justify-center">
               
-              {/* Marquee Vectors Row 1 */}
-              <div className="flex w-max animate-marquee opacity-15" style={{ animationDuration: '50s' }}>
-                {[...Array(4)].map((_, i) => (
+              {/* Marquee Vectors (Directly in background, single row) */}
+              <div className="flex w-max animate-marquee opacity-[0.12]" style={{ animationDuration: '40s' }}>
+                {[...Array(6)].map((_, i) => (
                   <div key={i} className="flex gap-24 pr-24 items-center text-[#111111]">
-                    <SoccerBall size={100} weight="duotone" />
-                    <MaskHappy size={100} weight="duotone" />
-                    <MusicNotes size={100} weight="duotone" />
-                    <Megaphone size={100} weight="duotone" />
-                    <PaintBrush size={100} weight="duotone" />
-                  </div>
-                ))}
-              </div>
-
-              {/* Marquee Vectors Row 2 (Reverse) */}
-              <div className="flex w-max animate-marquee opacity-15" style={{ animationDuration: '40s', animationDirection: 'reverse' }}>
-                {[...Array(4)].map((_, i) => (
-                  <div key={i} className="flex gap-24 pr-24 items-center text-[#111111]">
-                    <VideoCamera size={100} weight="duotone" />
-                    <UsersThree size={100} weight="duotone" />
-                    <FilmStrip size={100} weight="duotone" />
-                    <PenNib size={100} weight="duotone" />
-                    <MicrophoneStage size={100} weight="duotone" />
+                    <SoccerBall size={140} weight="duotone" />
+                    <MusicNotes size={140} weight="duotone" />
+                    <FilmStrip size={140} weight="duotone" />
+                    <Camera size={140} weight="duotone" />
+                    <PersonSimpleRun size={140} weight="duotone" />
                   </div>
                 ))}
               </div>
@@ -111,13 +98,13 @@ export function Details() {
 
             {/* Foreground Content */}
             <div className="relative z-10">
-              <h2 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[-0.02em] mb-16 text-[#111111]">
+              <h2 className="text-5xl md:text-6xl lg:text-[5.5rem] font-bold italic mb-16 text-[#111111]" style={{ fontFamily: '"Cormorant Garamond", serif', letterSpacing: '-0.02em', lineHeight: '1.1' }}>
                 Life Beyond Code
               </h2>
               <div className="flex flex-wrap lg:justify-center gap-4">
                 {[
-                  "Football", "Badminton", "School Dramas", "Cultural Events",
-                  "Keyboard / Music", "MUN", "Team Branding", "Hackathon Logos", "Video Concepts"
+                  "Football", "Badminton", "Athletics", "School Dramas", "Cultural Events",
+                  "Keyboard / Music", "MUN", "Public Speaking", "Video Editing"
                 ].map((item, i) => (
                   <span 
                     key={i} 
