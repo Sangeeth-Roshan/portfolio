@@ -1,5 +1,5 @@
 import { PROJECTS } from "../config/projects";
-import { ArrowUpRight, GithubLogo } from "@phosphor-icons/react";
+import { ArrowUpRight, GithubLogo, CaretRight } from "@phosphor-icons/react";
 
 const getWatermarkStyle = (id, accent) => {
   let layout = {};
@@ -128,9 +128,9 @@ export function Projects() {
                   {project.features.length > 0 && (
                     <ul className="flex flex-col gap-1.5">
                       {project.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-4 text-lg md:text-xl font-medium">
-                          <span className="shrink-0 mt-2.5 w-1.5 h-1.5 rounded-full bg-[#111111]" />
-                          <span className="flex-1 leading-snug">{feature}</span>
+                        <li key={idx} className="flex items-start gap-3 text-base md:text-lg font-mono font-medium text-[#111111]/90">
+                          <CaretRight size={20} weight="bold" className="shrink-0 mt-0.5 text-[#111111]" />
+                          <span className="flex-1 leading-snug tracking-tight">{feature}</span>
                         </li>
                       ))}
                     </ul>
