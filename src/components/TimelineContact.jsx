@@ -2,11 +2,46 @@ import { useState } from "react";
 import { ArrowRight, GithubLogo, LinkedinLogo, EnvelopeSimple } from "@phosphor-icons/react";
 
 const TIMELINE = [
-  { year: "2024", title: "Class 12", desc: "Graduated from Amrita Vidyalayam (92.4%). Secured the highest marks in Computer Science, building a strong foundation in programming logic and software development." },
-  { year: "2026", title: "B.Tech CSE", desc: "Joined Shiv Nadar University Chennai, specializing in Cyber Security. Deepened knowledge in foundational computer science, algorithms, and secure systems architecture." },
-  { year: "2026", title: "Hackathons", desc: "Began actively competing in hackathons. Qualified for Round 2 of the Smart India Hackathon 2026 during freshman year, collaborating with a tight-knit technical team." },
-  { year: "2026", title: "Projects", desc: "Designed and shipped multiple full-stack and AI projects including UniSolV, AntiDROP, UNIPECT, and LibSYNC, focusing on real-world impact and scalable architecture." },
-  { year: "Now", title: "Cybersecurity", desc: "Actively exploring offensive security, CTF challenges, Web Reconnaissance, and Linux Tooling. Preparing for industry certifications and diving into Active Directory exploits." },
+  {
+    year: "2024",
+    title: "Class X",
+    subtitle: "Amrita Vidyalayam · 92.2% CBSE",
+    desc: "Completed Class X at Amrita Vidyalayam with 92.2% CBSE, alongside active involvement in academics, sports, cultural activities and school leadership."
+  },
+  {
+    year: "OCT 2024",
+    title: "School Expo",
+    detailTitle: "School Expo — UNIPECT",
+    subtitle: "Built UNIPECT · Computer Vision",
+    desc: "Built UNIPECT, a real-time computer vision system for school uniform compliance and ID-card verification using a live webcam."
+  },
+  {
+    year: "2026",
+    title: "Class XII",
+    subtitle: "Amrita Vidyalayam · 92.4% CBSE",
+    desc: "Completed Class XII at Amrita Vidyalayam with 92.4% CBSE, continuing to balance academics with extracurriculars, leadership and technical projects."
+  },
+  {
+    year: "AUG 2026",
+    title: "B.Tech CSE",
+    detailTitle: "Shiv Nadar University",
+    subtitle: "Shiv Nadar University Chennai · Cyber Security",
+    desc: "Joined Shiv Nadar University Chennai for B.Tech CSE, specializing in Cyber Security and building deeper foundations in computer science, systems and security."
+  },
+  {
+    year: "SEP 2026",
+    title: "SNUC Internal Hackathon",
+    detailTitle: "SNUC Internal Hackathon — AntiDROP",
+    subtitle: "Shortlisted for SIH 2026 Round 2 · Built AntiDROP",
+    desc: "Led the team in the SNUC Internal Hackathon, building AntiDROP—a causal ML platform for early student-dropout intervention—and successfully progressed to the SIH 2026 Round 2 selection stage."
+  },
+  {
+    year: "NOW",
+    title: "SIH 2026 — ROUND 2",
+    detailTitle: "SIH 2026 — UniSOLV",
+    subtitle: "Developed UniSOLV · Civic Problem-Solving Platform",
+    desc: "Currently leading the team in SIH 2026 Round 2, developing UniSOLV—a comprehensive platform connecting citizens, government, universities, and companies to solve real-world civic problems."
+  }
 ];
 
 export function TimelineContact() {
@@ -15,15 +50,16 @@ export function TimelineContact() {
   return (
     <>
       {/* ── Timeline Section ─────────────────────────────────────────── */}
-      <section className="bg-[#F4F3EE] text-[#111111] border-t-2 border-[#111111]">
-        <div className="max-w-[1400px] mx-auto p-10 md:p-16 lg:p-24 lg:py-32">
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[-0.02em] mb-16 lg:mb-24">
-            The Journey
-          </h2>
+      <section className="bg-[#F4F3EE] text-[#111111] border-t-2 border-[#111111] overflow-hidden">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[500px_1fr]">
           
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 min-h-[400px]">
-            {/* Left: Timeline selector */}
-            <div className="flex flex-col gap-6 md:gap-8 lg:w-[400px] shrink-0 relative before:absolute before:inset-y-0 before:left-[39px] before:w-[2px] before:bg-[#111111]/10">
+          {/* Left: Timeline selector */}
+          <div className="p-10 md:p-16 lg:p-24 lg:py-32 flex flex-col">
+            <h2 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[-0.02em] mb-16 lg:mb-24">
+              The Journey
+            </h2>
+            
+            <div className="flex flex-col gap-6 md:gap-8 relative before:absolute before:inset-y-0 before:left-[39px] before:w-[2px] before:bg-[#111111]/10">
               {TIMELINE.map((item, i) => {
                 const isActive = activeId === i;
                 return (
@@ -51,25 +87,50 @@ export function TimelineContact() {
                       <span className="font-display font-bold text-2xl md:text-3xl leading-tight">
                         {item.title}
                       </span>
+                      {item.subtitle && (
+                        <span className={`font-mono text-xs md:text-sm mt-2 font-medium ${isActive ? 'text-[#111111]/90' : 'text-[#111111]/70'}`}>
+                          {item.subtitle}
+                        </span>
+                      )}
                     </div>
                   </button>
                 );
               })}
             </div>
+          </div>
 
-            {/* Right: Details panel */}
-            <div className="flex-1 lg:pl-16 lg:border-l-2 border-[#111111]/10 flex flex-col justify-center mt-12 lg:mt-0">
-              <div className="animate-fade-in" key={activeId}>
-                <div className="inline-block px-4 py-1.5 mb-8 text-sm font-mono font-bold uppercase tracking-widest border-2 border-[#111111] text-[#111111]">
-                  {TIMELINE[activeId].year}
-                </div>
-                <h3 className="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl tracking-tight mb-8 leading-[0.95]">
-                  {TIMELINE[activeId].title}
-                </h3>
-                <p className="text-lg md:text-xl lg:text-2xl font-mono font-medium leading-relaxed tracking-tight text-[#111111]/90 max-w-[40ch]">
-                  {TIMELINE[activeId].desc}
-                </p>
+          {/* Right: Details panel */}
+          <div className="lg:border-l-2 border-[#111111]/10 p-10 md:p-16 lg:p-24 lg:py-32 flex flex-col justify-center relative">
+            <div className="animate-fade-in flex flex-col items-center text-center relative z-10 w-full" key={activeId}>
+              
+              {/* Background Typography (Massive Solid Fill, Elongated) */}
+              <div 
+                className="absolute top-1/2 left-1/2 pointer-events-none select-none -z-10 whitespace-nowrap text-center"
+                style={{ 
+                  transform: "translate(-50%, -50%) scaleX(2.5)",
+                  fontSize: "clamp(10rem, 18vw, 28rem)", 
+                  fontWeight: 900, 
+                  fontFamily: "var(--font-display)",
+                  color: "transparent",
+                  backgroundImage: "linear-gradient(135deg, rgba(17,17,17,0.08) 0%, rgba(17,17,17,0.01) 100%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  letterSpacing: "0.02em"
+                }}
+                aria-hidden="true"
+              >
+                {(TIMELINE[activeId].detailTitle || TIMELINE[activeId].title).toUpperCase()}
               </div>
+
+              <div className="inline-block px-4 py-1.5 mb-8 text-sm font-mono font-bold uppercase tracking-widest border-2 border-[#111111] text-[#111111] bg-[#F4F3EE] text-center">
+                {TIMELINE[activeId].year}
+              </div>
+              <h3 className="font-display font-black text-6xl md:text-7xl lg:text-[5.5rem] tracking-tighter mb-8 leading-[0.9]">
+                {TIMELINE[activeId].detailTitle || TIMELINE[activeId].title}
+              </h3>
+              <p className="text-lg md:text-xl lg:text-2xl font-mono font-medium leading-relaxed tracking-tight text-[#111111]/90 max-w-[40ch]">
+                {TIMELINE[activeId].desc}
+              </p>
             </div>
           </div>
         </div>
