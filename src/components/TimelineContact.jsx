@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, GithubLogo, LinkedinLogo, EnvelopeSimple } from "@phosphor-icons/react";
+import { ArrowRight, GithubLogo, LinkedinLogo, EnvelopeSimple, CaretDown } from "@phosphor-icons/react";
 
 const TIMELINE = [
   {
@@ -45,126 +45,152 @@ const TIMELINE = [
 ];
 
 const ACCENTS = [
-  { bg: 'rgba(255, 51, 0, 0.12)', text: '#FF3300', fade: 'rgba(255, 51, 0, 0.02)' },    // Orange/Red
-  { bg: 'rgba(0, 60, 255, 0.1)', text: '#003CFF', fade: 'rgba(0, 60, 255, 0.02)' },   // Blue
-  { bg: 'rgba(150, 190, 0, 0.15)', text: '#88AA00', fade: 'rgba(150, 190, 0, 0.02)' },  // Lime Green
-  { bg: 'rgba(180, 0, 255, 0.1)', text: '#A800FF', fade: 'rgba(180, 0, 255, 0.02)' },  // Purple
-  { bg: 'rgba(0, 180, 150, 0.12)', text: '#00B496', fade: 'rgba(0, 180, 150, 0.02)' },   // Teal
-  { bg: 'rgba(255, 100, 0, 0.12)', text: '#FF6400', fade: 'rgba(255, 100, 0, 0.02)' }    // Bright Orange
+  { bg: 'rgba(255, 51, 0, 0.12)', text: '#FF3300', fade: 'rgba(255, 51, 0, 0.02)' },
+  { bg: 'rgba(0, 60, 255, 0.1)', text: '#003CFF', fade: 'rgba(0, 60, 255, 0.02)' },
+  { bg: 'rgba(150, 190, 0, 0.15)', text: '#88AA00', fade: 'rgba(150, 190, 0, 0.02)' },
+  { bg: 'rgba(180, 0, 255, 0.1)', text: '#A800FF', fade: 'rgba(180, 0, 255, 0.02)' },
+  { bg: 'rgba(0, 180, 150, 0.12)', text: '#00B496', fade: 'rgba(0, 180, 150, 0.02)' },
+  { bg: 'rgba(255, 100, 0, 0.12)', text: '#FF6400', fade: 'rgba(255, 100, 0, 0.02)' }
 ];
 
 export function TimelineContact() {
   const [activeId, setActiveId] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       {/* ── Timeline Section ─────────────────────────────────────────── */}
-      <section className="bg-[#F4F3EE] text-[#111111] border-t-2 border-[#111111] overflow-hidden">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[500px_1fr]">
+      <section className="bg-[#F4F3EE] text-[#111111] border-t-2 border-[#111111] overflow-hidden flex flex-col">
+        
+        {/* Full-width Toggle Header */}
+        <button
+          onClick={() => setIsOpen(o => !o)}
+          className="group relative w-full flex items-center justify-between p-10 md:p-16 lg:p-24 lg:py-16 text-left border-b-2 border-[#111111] overflow-hidden"
+        >
+          {/* Animated Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#003CFF] via-[#A800FF] to-[#FF1F6E] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out z-0" />
           
-          {/* Left: Timeline selector */}
-          <div className="p-10 md:p-16 lg:p-24 lg:py-32 flex flex-col">
-            <h2 className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl uppercase tracking-[-0.02em] mb-16 lg:mb-24">
-              The Journey
-            </h2>
-            
-            <div className="flex flex-col gap-6 md:gap-8 relative before:absolute before:inset-y-0 before:left-[39px] before:w-[2px] before:bg-[#111111]/10">
-              {TIMELINE.map((item, i) => {
-                const isActive = activeId === i;
-                const accent = ACCENTS[i % ACCENTS.length];
+          <h2 className="relative z-10 font-display font-extrabold text-4xl md:text-5xl lg:text-7xl uppercase tracking-[-0.02em] text-[#111111] group-hover:text-white transition-colors duration-500">
+            The Journey
+          </h2>
+          <span
+            className="relative z-10 shrink-0 ml-6 w-12 h-12 md:w-16 md:h-16 border-2 border-[#111111] group-hover:border-white text-[#111111] group-hover:text-white rounded-full flex items-center justify-center transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+            style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+          >
+            <CaretDown size={32} weight="bold" />
+          </span>
+        </button>
 
-                return (
-                  <button 
-                    key={i} 
-                    onClick={() => setActiveId(i)}
-                    className={`group w-full relative flex items-start text-left transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'opacity-100' : 'opacity-40 hover:opacity-100'}`}
-                  >
-                    {/* Active Background Sweep (Starts from timeline line and fades right) */}
-                    <div 
-                      className={`absolute inset-y-0 left-[40px] right-0 pointer-events-none transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] origin-left rounded-r-2xl ${
-                        isActive ? 'scale-x-100' : 'scale-x-0'
-                      }`}
-                      style={{
-                        background: `linear-gradient(90deg, ${accent.bg} 0%, transparent 100%)`
-                      }}
-                    />
-
-                    {/* Dot Container (Fixed Width ensures no overlap) */}
-                    <div className="w-[80px] pt-[22px] shrink-0 flex justify-center relative z-10">
-                      <span 
-                        className={`rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                          isActive 
-                            ? 'w-6 h-6 border-[4px] border-[#F4F3EE]' 
-                            : 'w-[6px] h-[6px] bg-[#111111] group-hover:scale-150'
-                        }`}
-                        style={isActive ? { 
-                          backgroundColor: accent.text, 
-                          boxShadow: `0 0 0 2px ${accent.text}` 
-                        } : {}}
-                      />
-                    </div>
-                    
-                    {/* Text Container (Slides slightly right when active) */}
-                    <div 
-                      className="flex flex-col py-4 pr-4 relative z-10 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                      style={{ transform: isActive ? 'translateX(12px)' : 'translateX(0px)' }}
-                    >
-                      <span 
-                        className="text-xs md:text-sm font-mono font-bold uppercase tracking-widest transition-colors mb-2"
-                        style={{ color: isActive ? accent.text : '#111111' }}
-                      >
-                        {item.year}
-                      </span>
-                      <span className="font-display font-bold text-2xl md:text-3xl leading-tight">
-                        {item.title}
-                      </span>
-                      {item.subtitle && (
-                        <span className={`font-mono text-xs md:text-sm mt-2 font-medium transition-colors ${isActive ? 'text-[#111111]/90' : 'text-[#111111]/70'}`}>
-                          {item.subtitle}
-                        </span>
-                      )}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Right: Details panel */}
-          <div className="lg:border-l-2 border-[#111111]/10 p-10 md:p-16 lg:p-24 lg:py-32 flex flex-col justify-center relative">
-            <div className="animate-fade-in flex flex-col items-center text-center relative z-10 w-full" key={activeId}>
+        {/* Collapsible Grid Body (Grid rows transition is butter smooth) */}
+        <div
+          className="grid transition-[grid-template-rows] duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+          style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
+        >
+          <div className="overflow-hidden">
+            <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[500px_1fr]">
               
-              {/* Background Typography (Massive Solid Fill, Elongated) */}
-              <div 
-                className="absolute top-1/2 left-1/2 pointer-events-none select-none -z-10 whitespace-nowrap text-center transition-colors duration-500"
-                style={{ 
-                  transform: "translate(-50%, -50%) scaleX(2.5)",
-                  fontSize: "clamp(10rem, 18vw, 28rem)", 
-                  fontWeight: 900, 
-                  fontFamily: "var(--font-display)",
-                  color: "transparent",
-                  backgroundImage: `linear-gradient(135deg, ${ACCENTS[activeId % ACCENTS.length].bg} 0%, ${ACCENTS[activeId % ACCENTS.length].fade} 100%)`,
-                  WebkitBackgroundClip: "text",
-                  backgroundClip: "text",
-                  letterSpacing: "0.02em"
-                }}
-                aria-hidden="true"
-              >
-                {(TIMELINE[activeId].detailTitle || TIMELINE[activeId].title).toUpperCase()}
+              {/* Left: Timeline selector */}
+              <div className="p-10 md:p-16 lg:p-24 lg:py-32 flex flex-col">
+                <div className="flex flex-col gap-6 md:gap-8 relative before:absolute before:inset-y-0 before:left-[39px] before:w-[2px] before:bg-[#111111]/10">
+                  {TIMELINE.map((item, i) => {
+                    const isActive = activeId === i;
+                    const accent = ACCENTS[i % ACCENTS.length];
+                    const isLast = i === TIMELINE.length - 1;
+
+                    return (
+                      <button 
+                        key={i} 
+                        onClick={() => setActiveId(i)}
+                        className={`group w-full relative flex items-start text-left transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'opacity-100' : 'opacity-40 hover:opacity-100'} ${isLast ? 'pb-10' : ''}`}
+                      >
+                        {/* Active Background Sweep */}
+                        <div 
+                          className={`absolute inset-y-0 left-[40px] right-0 pointer-events-none transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] origin-left rounded-r-2xl ${
+                            isActive ? 'scale-x-100' : 'scale-x-0'
+                          }`}
+                          style={{
+                            background: `linear-gradient(90deg, ${accent.bg} 0%, transparent 100%)`
+                          }}
+                        />
+
+                        {/* Dot Container */}
+                        <div className="w-[80px] pt-[22px] shrink-0 flex justify-center relative z-10">
+                          <span 
+                            className={`rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                              isActive 
+                                ? 'w-6 h-6 border-[4px] border-[#F4F3EE]' 
+                                : 'w-[6px] h-[6px] bg-[#111111] group-hover:scale-150'
+                            }`}
+                            style={isActive ? { 
+                              backgroundColor: accent.text, 
+                              boxShadow: `0 0 0 2px ${accent.text}` 
+                            } : {}}
+                          />
+                        </div>
+                        
+                        {/* Text Container */}
+                        <div 
+                          className="flex flex-col py-4 pr-4 relative z-10 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                          style={{ transform: isActive ? 'translateX(12px)' : 'translateX(0px)' }}
+                        >
+                          <span 
+                            className="text-xs md:text-sm font-mono font-bold uppercase tracking-widest transition-colors mb-2"
+                            style={{ color: isActive ? accent.text : '#111111' }}
+                          >
+                            {item.year}
+                          </span>
+                          <span className="font-display font-bold text-2xl md:text-3xl leading-tight">
+                            {item.title}
+                          </span>
+                          {item.subtitle && (
+                            <span className={`font-mono text-xs md:text-sm mt-2 font-medium transition-colors ${isActive ? 'text-[#111111]/90' : 'text-[#111111]/70'}`}>
+                              {item.subtitle}
+                            </span>
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
 
-              <div 
-                className="inline-block px-6 py-2.5 md:px-8 md:py-3 mb-8 text-sm font-mono font-bold uppercase tracking-widest border-2 text-[#111111] bg-[#F4F3EE] text-center transition-colors duration-500"
-                style={{ borderColor: ACCENTS[activeId % ACCENTS.length].text }}
-              >
-                {TIMELINE[activeId].year}
+              {/* Right: Details panel */}
+              <div className="lg:border-l-2 border-[#111111]/10 p-10 md:p-16 lg:p-24 lg:py-32 flex flex-col justify-center relative">
+                <div className="animate-fade-in flex flex-col items-center text-center relative z-10 w-full" key={activeId}>
+                  
+                  {/* Background Typography */}
+                  <div 
+                    className="absolute top-1/2 left-1/2 pointer-events-none select-none -z-10 whitespace-nowrap text-center transition-colors duration-500"
+                    style={{ 
+                      transform: "translate(-50%, -50%) scaleX(2.5)",
+                      fontSize: "clamp(10rem, 18vw, 28rem)", 
+                      fontWeight: 900, 
+                      fontFamily: "var(--font-display)",
+                      color: "transparent",
+                      backgroundImage: `linear-gradient(135deg, ${ACCENTS[activeId % ACCENTS.length].bg} 0%, ${ACCENTS[activeId % ACCENTS.length].fade} 100%)`,
+                      WebkitBackgroundClip: "text",
+                      backgroundClip: "text",
+                      letterSpacing: "0.02em"
+                    }}
+                    aria-hidden="true"
+                  >
+                    {(TIMELINE[activeId].detailTitle || TIMELINE[activeId].title).toUpperCase()}
+                  </div>
+
+                  <div 
+                    className="inline-block px-6 py-2.5 md:px-8 md:py-3 mb-8 text-sm font-mono font-bold uppercase tracking-widest border-2 text-[#111111] bg-[#F4F3EE] text-center transition-colors duration-500"
+                    style={{ borderColor: ACCENTS[activeId % ACCENTS.length].text }}
+                  >
+                    {TIMELINE[activeId].year}
+                  </div>
+                  <h3 className="font-display font-black text-6xl md:text-7xl lg:text-[5.5rem] tracking-tighter mb-8 leading-[0.9]">
+                    {TIMELINE[activeId].detailTitle || TIMELINE[activeId].title}
+                  </h3>
+                  <p className="text-lg md:text-xl lg:text-2xl font-mono font-medium leading-relaxed tracking-tight text-[#111111]/90 max-w-[40ch]">
+                    {TIMELINE[activeId].desc}
+                  </p>
+                </div>
               </div>
-              <h3 className="font-display font-black text-6xl md:text-7xl lg:text-[5.5rem] tracking-tighter mb-8 leading-[0.9]">
-                {TIMELINE[activeId].detailTitle || TIMELINE[activeId].title}
-              </h3>
-              <p className="text-lg md:text-xl lg:text-2xl font-mono font-medium leading-relaxed tracking-tight text-[#111111]/90 max-w-[40ch]">
-                {TIMELINE[activeId].desc}
-              </p>
             </div>
           </div>
         </div>
