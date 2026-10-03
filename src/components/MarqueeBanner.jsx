@@ -1,15 +1,10 @@
 import { StarFour } from "@phosphor-icons/react";
 
 const items = [
-  "Smart India Hackathon 2026",
-  "SNUC Internal Hackathon",
-  "AVMUN'25 AIPPM",
-  "Asia Book of Records",
-  "Assistant Sports Secretary",
-  "Student Council",
-  "Class Leader",
-  "Public Speaking",
-  "Stage Presence"
+  "Academics",
+  "Sports",
+  "Leadership",
+  "Programming"
 ];
 
 export function MarqueeBanner() {
