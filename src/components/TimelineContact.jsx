@@ -73,12 +73,17 @@ export function TimelineContact() {
           <h2 className="relative z-10 font-display font-extrabold text-4xl md:text-5xl lg:text-7xl uppercase tracking-[-0.02em] text-[#111111] group-hover:text-white transition-colors duration-500">
             The Journey
           </h2>
+        <div className="relative z-10 flex items-center gap-4 md:gap-6">
+          <span className="hidden md:inline-flex items-center text-sm md:text-base font-mono font-bold uppercase tracking-widest text-[#111111] group-hover:text-white transition-all duration-500">
+            {isOpen ? 'Close Section' : 'Click to view more'}
+          </span>
           <span
-            className="relative z-10 shrink-0 ml-6 w-12 h-12 md:w-16 md:h-16 border-2 border-[#111111] group-hover:border-white text-[#111111] group-hover:text-white rounded-full flex items-center justify-center transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+            className="shrink-0 w-12 h-12 md:w-16 md:h-16 border-2 border-[#111111] group-hover:border-white text-[#111111] group-hover:text-white rounded-full flex items-center justify-center transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
             style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
           >
             <CaretDown size={32} weight="bold" />
           </span>
+        </div>
         </button>
 
         {/* Collapsible Grid Body (Grid rows transition is butter smooth) */}
@@ -213,14 +218,36 @@ export function TimelineContact() {
 
           <div className="w-full max-w-4xl flex flex-col gap-6">
             <a 
-              href="mailto:rsangeethroshan@gmail.com"
-              className="flex items-center justify-between p-6 md:p-8 border-2 border-[#333] hover:border-[#C8FF00] hover:text-[#C8FF00] transition-colors group"
+              href="mailto:sangeethroshanr@gmail.com"
+              className="flex items-center justify-between p-6 md:p-8 border-2 border-[#333] hover:border-transparent hover:[border-image:conic-gradient(from_var(--border-angle),#4285F4,#EA4335,#FBBC05,#34A853,#4285F4)_1] hover:[animation:spin-border_3s_linear_infinite] transition-all group relative"
             >
+              <svg width="0" height="0" className="absolute pointer-events-none">
+                <defs>
+                  <linearGradient id="gmailGradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#4285F4" />
+                    <stop offset="33%" stopColor="#EA4335" />
+                    <stop offset="66%" stopColor="#FBBC05" />
+                    <stop offset="100%" stopColor="#34A853" />
+                    <animateTransform attributeName="gradientTransform" type="rotate" from="0 0.5 0.5" to="360 0.5 0.5" dur="3s" repeatCount="indefinite" />
+                  </linearGradient>
+                </defs>
+              </svg>
+
               <div className="flex items-center gap-6">
-                <EnvelopeSimple size={32} weight="fill" />
-                <span className="font-display font-bold text-xl md:text-4xl break-all">rsangeethroshan@gmail.com</span>
+                <EnvelopeSimple 
+                  size={32} 
+                  weight="fill" 
+                  className="text-[#F4F3EE] transition-colors group-hover:text-transparent group-hover:[&_*]:fill-[url(#gmailGradient)]" 
+                />
+                <span className="font-display font-bold text-xl md:text-4xl break-all text-[#F4F3EE] group-hover:text-transparent group-hover:bg-clip-text group-hover:[background-image:conic-gradient(from_var(--border-angle),#4285F4,#EA4335,#FBBC05,#34A853,#4285F4)] transition-all duration-300">
+                  sangeethroshanr@gmail.com
+                </span>
               </div>
-              <ArrowRight size={32} weight="bold" className="opacity-0 hidden md:block group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all" />
+              <ArrowRight 
+                size={32} 
+                weight="fill" 
+                className="transition-all text-[#F4F3EE] group-hover:text-transparent group-hover:[&_*]:fill-[url(#gmailGradient)]" 
+              />
             </a>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

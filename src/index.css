@@ -77,6 +77,18 @@ body {
   }
 }
 
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@keyframes spin-border {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
 /* ── Utilities ── */
 @keyframes marquee {
   0% { transform: translateX(0%); }
