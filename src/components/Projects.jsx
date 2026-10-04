@@ -162,8 +162,8 @@ export function Projects() {
                 </div>
 
                 {/* Right col: Tags & Links */}
-                <div className="flex flex-col lg:items-end justify-between gap-8 lg:gap-0 mt-4 lg:mt-0 relative z-10">
-                  <div className="flex flex-wrap lg:justify-end gap-2">
+                <div className="flex flex-col items-end justify-between gap-8 lg:gap-0 mt-4 lg:mt-0 relative z-10 w-full h-full ml-auto text-right">
+                  <div className="flex flex-wrap justify-end gap-2 w-full">
                     {project.tags.map((tag) => (
                       <span 
                         key={tag} 
@@ -180,7 +180,7 @@ export function Projects() {
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="
-                        inline-flex items-center gap-2 self-start lg:self-end px-5 py-3 
+                        inline-flex items-center gap-2 self-end px-5 py-3 
                         bg-[#111111] text-[#F4F3EE] font-bold text-sm uppercase tracking-wide
                         hover:bg-[#333] transition-colors
                       "

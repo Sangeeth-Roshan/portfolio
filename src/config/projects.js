@@ -11,7 +11,7 @@ export const PROJECTS = [
     features: ["Reputation/trust score", "Escalation/SLA mechanism", "Geo-clustering of issues", "IP/credit governance", "Voice-based submissions"],
     role: "Technical implementation plus product/UI direction. AI layer can switch between a live LLM API and a cached/demo dataset.",
     tags: ["Responsive Web App", "AI Classification", "UI/UX"],
-    repo: null,
+    repo: "https://github.com/sangeeth-roshan/unisolv",
     accent: "#C8FF00", // Acid Lime
   },
   {
@@ -22,7 +22,7 @@ export const PROJECTS = [
     features: ["Dropout prediction (Random Forest)", "SHAP explainability", "Causal effect estimation of scholarships (DoWhy + EconML)", "Cohort overview & student risk views", "Causal policy simulator"],
     role: "Rebuilding originally Streamlit app with a React frontend.",
     tags: ["Machine Learning", "Causal Inference", "React", "Python"],
-    repo: null,
+    repo: "https://github.com/sangeeth-roshan/anti_drop",
     accent: "#FF3300", // Signal Red
   },
   {

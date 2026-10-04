@@ -2,8 +2,9 @@
  * Hero.jsx
  * Full-viewport opening section. Light background, dark ink.
  * Background: staggered typographic collage of identity words.
+ * Heading: Loki-style rapid font-flip animation on mount.
  */
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useReducedMotion } from "motion/react";
 import { ArrowRight } from "@phosphor-icons/react";
@@ -48,29 +49,104 @@ const WORD_ROWS = [
   },
 ];
 
-export function Hero({ onScrollDown }) {
-  const sectionRef     = useRef(null);
-  const headingRef     = useRef(null);
-  const subRef         = useRef(null);
-  const ctaRef         = useRef(null);
-  const prefersReduced = useReducedMotion();
+// Massive font list — system fonts + heavy cursives
+const FONTS = [
+  // Heavy Cursives
+  '"Pacifico", cursive',
+  '"Lobster", cursive',
+  '"Oleo Script", cursive',
+  '"Kaushan Script", cursive',
+  '"Courgette", cursive',
+  // System serifs
+  '"Times New Roman", Times, serif',
+  "Georgia, serif",
+  "Garamond, serif",
+  "Palatino, 'Palatino Linotype', serif",
+  "'Book Antiqua', Palatino, serif",
+  "Baskerville, 'Baskerville Old Face', serif",
+  "'Century Schoolbook', serif",
+  "'Bodoni MT', Didot, serif",
+  "Didot, 'Didot LT STD', serif",
+  "Superclarendon, Clarendon, serif",
+  "'Big Caslon', 'Book Antiqua', serif",
+  "'Hoefler Text', Garamond, serif",
+  // System sans-serifs
+  "'Arial Black', Gadget, sans-serif",
+  "'Arial Narrow', Arial, sans-serif",
+  "'Century Gothic', Futura, sans-serif",
+  "'Franklin Gothic Medium', 'Franklin Gothic', sans-serif",
+  "Verdana, Geneva, sans-serif",
+  "Tahoma, Geneva, sans-serif",
+  "'Gill Sans', 'Gill Sans MT', sans-serif",
+  "Optima, Segoe, sans-serif",
+  "Futura, 'Trebuchet MS', sans-serif",
+  "'Helvetica Neue', Helvetica, Arial, sans-serif",
+  // System display / condensed
+  "Impact, Haettenschweiler, sans-serif",
+  "'Rockwell Extra Bold', 'Rockwell', serif",
+  "'Copperplate Gothic Bold', Copperplate, serif",
+  // System mono
+  "'Courier New', Courier, monospace",
+  "'Lucida Console', Monaco, monospace",
+  "'Andale Mono', monospace",
+  // Our loaded fonts
+  '"Oswald", sans-serif',
+  '"Cormorant Garamond", serif',
+  '"JetBrains Mono", monospace',
+  '"Bricolage Grotesque", sans-serif',
+];
 
+export function Hero({ onScrollDown }) {
+  const sectionRef      = useRef(null);
+  const headingRef      = useRef(null);
+  const subRef          = useRef(null);
+  const ctaRef          = useRef(null);
+  const prefersReduced  = useReducedMotion();
+  const [headingStyle, setHeadingStyle] = useState({ fontFamily: FONTS[FONTS.length - 1], fontStyle: "normal" });
+
+  // GSAP fade-in
   useEffect(() => {
     if (prefersReduced) return;
     const ctx = gsap.context(() => {
       gsap.timeline({ defaults: { ease: "power3.out" } })
-        .from(headingRef.current, { y: 80, opacity: 0, duration: 1 })
-        .from(subRef.current,     { y: 30, opacity: 0, duration: 0.7 }, "-=0.5")
+        .from(headingRef.current, { opacity: 0, duration: 0.2 })
+        .from(subRef.current,     { y: 30, opacity: 0, duration: 0.7 }, "+=0.3")
         .from(ctaRef.current,     { y: 20, opacity: 0, duration: 0.5 }, "-=0.3");
     }, sectionRef);
     return () => ctx.revert();
+  }, [prefersReduced]);
+
+  // Endless font cycling — fixed ultra-fast 50ms interval for zero stutter
+  useEffect(() => {
+    if (prefersReduced) return;
+    let lastIdx = FONTS.length - 1;
+    let timer;
+
+    const cycle = () => {
+      let nextIdx;
+      do { nextIdx = Math.floor(Math.random() * FONTS.length); } while (nextIdx === lastIdx);
+      lastIdx = nextIdx;
+      
+      // Randomly make it italic (~30% chance) to add more flavor
+      const isItalic = Math.random() > 0.7;
+      
+      setHeadingStyle({
+        fontFamily: FONTS[nextIdx],
+        fontStyle: isItalic ? "italic" : "normal"
+      });
+      // Slower 200ms interval for readability
+      timer = setTimeout(cycle, 200);
+    };
+
+    timer = setTimeout(cycle, 200);
+    return () => clearTimeout(timer);
   }, [prefersReduced]);
 
   return (
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden"
       aria-label="Introduction"
     >
 
@@ -98,13 +174,17 @@ export function Hero({ onScrollDown }) {
       </div>
 
       {/* ── Foreground content ──────────────────────────────────────────── */}
-      <div className="relative z-10 px-6 md:px-16 pt-20 md:pt-24 pb-16 max-w-[1400px] mx-auto w-full">
+      <div className="relative z-10 px-6 md:px-16 pt-20 md:pt-24 pb-16 max-w-[1400px] mx-auto w-full flex flex-col items-center text-center">
 
         {/* ── Main heading ─────────────────────────────────────────────── */}
-        <div ref={headingRef}>
+        <div ref={headingRef} className="min-h-[220px] md:min-h-[280px] flex flex-col justify-center">
           <h1
-            className="font-extrabold tracking-[-0.04em] leading-[0.95]"
-            style={{ fontSize: "clamp(3.2rem, 9vw, 7rem)" }}
+            className="font-extrabold tracking-[-0.04em] leading-[0.95] transition-none"
+            style={{
+              fontSize: "clamp(3.2rem, 9vw, 7rem)",
+              fontFamily: headingStyle.fontFamily,
+              fontStyle: headingStyle.fontStyle,
+            }}
           >
             Sangeeth
             <br />
@@ -122,7 +202,7 @@ export function Hero({ onScrollDown }) {
         </p>
 
         {/* ── CTAs ─────────────────────────────────────────────────────── */}
-        <div ref={ctaRef} className="mt-10 flex flex-wrap items-center gap-4">
+        <div ref={ctaRef} className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <button
             onClick={onScrollDown}
             className="group flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-bold
