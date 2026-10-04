@@ -9,7 +9,7 @@ import tailwindcss from "@tailwindcss/vite";
  * - Tailwind v4 is injected via the official Vite plugin (not postcss)
  */
 export default defineConfig({
-  base: "/portfolio/",
+  base: "/",
   plugins: [
     react(),
     tailwindcss(),
