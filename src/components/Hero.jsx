@@ -198,7 +198,7 @@ export function Hero({ onScrollDown }) {
           className="mt-10 text-lg md:text-xl font-medium text-[#6B6B6B] max-w-[48ch] leading-relaxed"
         >
           First-year CSE (Cyber Security) student at SNU Chennai.
-          One person, many modes.
+          One person, many modes. (STILL IN DEVELOPMENT PHASE! Many issues are there, don't mind them:)
         </p>
 
         {/* ── CTAs ─────────────────────────────────────────────────────── */}
