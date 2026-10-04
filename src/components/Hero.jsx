@@ -1,30 +1,58 @@
 /**
  * Hero.jsx
  * Full-viewport opening section. Light background, dark ink.
- * Font: Bricolage Grotesque 800 — heavy, intentional.
- * Motion: GSAP stagger entry on mount. CSS ticker for identities.
- * Layout: left-aligned, asymmetric.
+ * Background: staggered typographic collage of identity words.
  */
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { useReducedMotion } from "motion/react";
 import { ArrowRight } from "@phosphor-icons/react";
 
-const IDENTITIES = [
-  "Builder",
-  "Hacker",
-  "Leader",
-  "Speaker",
-  "Athlete",
-  "Musician",
-  "Designer",
+// Each row: words, font-size class, opacity, left offset (px) to break grid symmetry
+const WORD_ROWS = [
+  {
+    words: ["BUILDER", "LEADER", "HACKATHONS", "DEVELOPER", "BUILDER"],
+    size: "text-[5rem] md:text-[8rem] lg:text-[11rem]",
+    opacity: "opacity-[0.04]",
+    offset: -30,
+  },
+  {
+    words: ["ATHLETE", "CTFs", "FOOTBALL", "MUSICIAN", "ATHLETE", "CTFs"],
+    size: "text-[3rem] md:text-[4.5rem] lg:text-[6rem]",
+    opacity: "opacity-[0.055]",
+    offset: 110,
+  },
+  {
+    words: ["CYBERSECURITY", "HACKER", "MUN", "DESIGNER", "CYBERSECURITY"],
+    size: "text-[4.5rem] md:text-[7rem] lg:text-[9.5rem]",
+    opacity: "opacity-[0.035]",
+    offset: -80,
+  },
+  {
+    words: ["SPORTSMAN", "BADMINTON", "OPEN SOURCE", "CULTURAL", "SPORTSMAN"],
+    size: "text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem]",
+    opacity: "opacity-[0.06]",
+    offset: 200,
+  },
+  {
+    words: ["ATHLETICS", "KEYBOARD", "FILMMAKER", "SPEAKER", "ATHLETICS", "KEYBOARD"],
+    size: "text-[4rem] md:text-[6rem] lg:text-[8rem]",
+    opacity: "opacity-[0.04]",
+    offset: 50,
+  },
+  {
+    words: ["DIGITAL DESIGN", "HACKATHONS", "FOOTBALL", "LEADER"],
+    size: "text-[3.5rem] md:text-[5rem] lg:text-[7rem]",
+    opacity: "opacity-[0.05]",
+    offset: -50,
+  },
 ];
 
 export function Hero({ onScrollDown }) {
-  const sectionRef    = useRef(null);
-  const headingRef    = useRef(null);
-  const subRef        = useRef(null);
-  const ctaRef        = useRef(null);
+  const sectionRef     = useRef(null);
+  const headingRef     = useRef(null);
+  const subRef         = useRef(null);
+  const ctaRef         = useRef(null);
   const prefersReduced = useReducedMotion();
 
   useEffect(() => {
@@ -38,20 +66,39 @@ export function Hero({ onScrollDown }) {
     return () => ctx.revert();
   }, [prefersReduced]);
 
-  // Each strip = 6 copies of IDENTITIES. Two strips side by side = 12 copies total.
-  // Animation translates -50% = scrolls exactly one strip, then loops seamlessly.
-  // 6 copies guarantees the strip is wider than any monitor at this small font size.
-  const strip = Array.from({ length: 6 }).flatMap(() => IDENTITIES);
-
   return (
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-[100dvh] flex flex-col justify-center"
+      className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden"
       aria-label="Introduction"
     >
-      {/* ── Inner content (max-width constrained) ─────────────────────── */}
-      <div className="px-6 md:px-16 pt-20 md:pt-24 pb-6 max-w-[1400px] mx-auto w-full">
+
+      {/* ── Background typographic collage ──────────────────────────────── */}
+      <div
+        className="absolute inset-0 flex flex-col justify-around pointer-events-none select-none"
+        aria-hidden="true"
+      >
+        {WORD_ROWS.map((row, ri) => (
+          <div
+            key={ri}
+            className={`flex items-center whitespace-nowrap gap-8 md:gap-12 ${row.opacity}`}
+            style={{ marginLeft: row.offset }}
+          >
+            {row.words.map((word, wi) => (
+              <span
+                key={wi}
+                className={`font-display font-black uppercase leading-none tracking-[-0.03em] text-[#111111] ${row.size} shrink-0`}
+              >
+                {word}
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {/* ── Foreground content ──────────────────────────────────────────── */}
+      <div className="relative z-10 px-6 md:px-16 pt-20 md:pt-24 pb-16 max-w-[1400px] mx-auto w-full">
 
         {/* ── Main heading ─────────────────────────────────────────────── */}
         <div ref={headingRef}>
@@ -64,43 +111,6 @@ export function Hero({ onScrollDown }) {
             Roshan.
           </h1>
         </div>
-      </div>
-
-      {/* ── Identity ticker ─ TRUE full-viewport width ─────────────────── */}
-      <div className="w-full overflow-hidden" aria-label="Identities">
-        <div
-          className="flex w-max"
-          style={{
-            animation: prefersReduced ? "none" : "ticker-scroll 18s linear infinite",
-          }}
-        >
-          {/* Strip 1 */}
-          <div className="flex gap-8 px-4">
-            {strip.map((id, i) => (
-              <span
-                key={`a-${i}`}
-                className="shrink-0 text-xs font-mono font-medium uppercase tracking-[0.25em] text-[#6B6B6B]"
-              >
-                {id}
-              </span>
-            ))}
-          </div>
-          {/* Strip 2 — exact duplicate so -50% loops back to start */}
-          <div className="flex gap-8 px-4">
-            {strip.map((id, i) => (
-              <span
-                key={`b-${i}`}
-                className="shrink-0 text-xs font-mono font-medium uppercase tracking-[0.25em] text-[#6B6B6B]"
-              >
-                {id}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ── Lower content (max-width constrained) ────────────────────── */}
-      <div className="px-6 md:px-16 pb-16 max-w-[1400px] mx-auto w-full">
 
         {/* ── Subtext ──────────────────────────────────────────────────── */}
         <p
@@ -139,7 +149,7 @@ export function Hero({ onScrollDown }) {
       </div>
 
       {/* ── Bottom metadata ───────────────────────────────────────────── */}
-      <div className="absolute bottom-8 left-6 md:left-16 flex items-center gap-3 text-xs font-mono text-[#9B9B9B]">
+      <div className="absolute bottom-8 left-6 md:left-16 z-10 flex items-center gap-3 text-xs font-mono text-[#9B9B9B]">
         <span>B.Tech CSE</span>
         <span aria-hidden>-</span>
         <span>SNU Chennai</span>
@@ -147,12 +157,6 @@ export function Hero({ onScrollDown }) {
         <span>Batch of 2026</span>
       </div>
 
-      <style>{`
-        @keyframes ticker-scroll {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-      `}</style>
     </section>
   );
 }
