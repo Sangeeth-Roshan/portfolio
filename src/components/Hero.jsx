@@ -38,80 +38,104 @@ export function Hero({ onScrollDown }) {
     return () => ctx.revert();
   }, [prefersReduced]);
 
-  const doubled = [...IDENTITIES, ...IDENTITIES];
+  // Each strip = 6 copies of IDENTITIES. Two strips side by side = 12 copies total.
+  // Animation translates -50% = scrolls exactly one strip, then loops seamlessly.
+  // 6 copies guarantees the strip is wider than any monitor at this small font size.
+  const strip = Array.from({ length: 6 }).flatMap(() => IDENTITIES);
 
   return (
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-[100dvh] flex flex-col justify-center px-6 md:px-16 pt-20 md:pt-24 pb-16 max-w-[1400px] mx-auto"
+      className="relative min-h-[100dvh] flex flex-col justify-center"
       aria-label="Introduction"
     >
+      {/* ── Inner content (max-width constrained) ─────────────────────── */}
+      <div className="px-6 md:px-16 pt-20 md:pt-24 pb-6 max-w-[1400px] mx-auto w-full">
 
-      {/* ── Main heading ─────────────────────────────────────────────── */}
-      <div ref={headingRef}>
-        <h1
-          className="font-extrabold tracking-[-0.04em] leading-[0.95]"
-          style={{ fontSize: "clamp(3.2rem, 9vw, 7rem)" }}
-        >
-          Sangeeth
-          <br />
-          Roshan.
-        </h1>
+        {/* ── Main heading ─────────────────────────────────────────────── */}
+        <div ref={headingRef}>
+          <h1
+            className="font-extrabold tracking-[-0.04em] leading-[0.95]"
+            style={{ fontSize: "clamp(3.2rem, 9vw, 7rem)" }}
+          >
+            Sangeeth
+            <br />
+            Roshan.
+          </h1>
+        </div>
       </div>
 
-      {/* ── Identity ticker ───────────────────────────────────────────── */}
-      <div className="mt-8 overflow-hidden" aria-label="Identities">
+      {/* ── Identity ticker ─ TRUE full-viewport width ─────────────────── */}
+      <div className="w-full overflow-hidden" aria-label="Identities">
         <div
-          className="flex gap-8 w-max"
+          className="flex w-max"
           style={{
             animation: prefersReduced ? "none" : "ticker-scroll 18s linear infinite",
           }}
         >
-          {doubled.map((id, i) => (
-            <span
-              key={i}
-              className="shrink-0 text-xs font-mono font-medium uppercase tracking-[0.25em] text-[#6B6B6B]"
-            >
-              {id}
-            </span>
-          ))}
+          {/* Strip 1 */}
+          <div className="flex gap-8 px-4">
+            {strip.map((id, i) => (
+              <span
+                key={`a-${i}`}
+                className="shrink-0 text-xs font-mono font-medium uppercase tracking-[0.25em] text-[#6B6B6B]"
+              >
+                {id}
+              </span>
+            ))}
+          </div>
+          {/* Strip 2 — exact duplicate so -50% loops back to start */}
+          <div className="flex gap-8 px-4">
+            {strip.map((id, i) => (
+              <span
+                key={`b-${i}`}
+                className="shrink-0 text-xs font-mono font-medium uppercase tracking-[0.25em] text-[#6B6B6B]"
+              >
+                {id}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* ── Subtext ──────────────────────────────────────────────────── */}
-      <p
-        ref={subRef}
-        className="mt-10 text-lg md:text-xl font-medium text-[#6B6B6B] max-w-[48ch] leading-relaxed"
-      >
-        First-year CSE (Cyber Security) student at SNU Chennai.
-        One person, many modes.
-      </p>
+      {/* ── Lower content (max-width constrained) ────────────────────── */}
+      <div className="px-6 md:px-16 pb-16 max-w-[1400px] mx-auto w-full">
 
-      {/* ── CTAs ─────────────────────────────────────────────────────── */}
-      <div ref={ctaRef} className="mt-10 flex flex-wrap items-center gap-4">
-        <button
-          onClick={onScrollDown}
-          className="group flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-bold
-            bg-[#111111] text-[#F4F3EE]
-            hover:bg-[#333] active:scale-[0.97] transition-all duration-150"
+        {/* ── Subtext ──────────────────────────────────────────────────── */}
+        <p
+          ref={subRef}
+          className="mt-10 text-lg md:text-xl font-medium text-[#6B6B6B] max-w-[48ch] leading-relaxed"
         >
-          See the avatars
-          <ArrowRight
-            size={16}
-            weight="bold"
-            className="group-hover:translate-x-[3px] transition-transform duration-200"
-          />
-        </button>
-        <a
-          href="mailto:rsangeethroshan@gmail.com"
-          className="px-6 py-3 rounded-full text-sm font-bold border-2 border-[#111111]
-            text-[#111111]
-            hover:bg-[#111111] hover:text-[#F4F3EE]
-            active:scale-[0.97] transition-all duration-150"
-        >
-          Say hello
-        </a>
+          First-year CSE (Cyber Security) student at SNU Chennai.
+          One person, many modes.
+        </p>
+
+        {/* ── CTAs ─────────────────────────────────────────────────────── */}
+        <div ref={ctaRef} className="mt-10 flex flex-wrap items-center gap-4">
+          <button
+            onClick={onScrollDown}
+            className="group flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-bold
+              bg-[#111111] text-[#F4F3EE]
+              hover:bg-[#333] active:scale-[0.97] transition-all duration-150"
+          >
+            See the avatars
+            <ArrowRight
+              size={16}
+              weight="bold"
+              className="group-hover:translate-x-[3px] transition-transform duration-200"
+            />
+          </button>
+          <a
+            href="mailto:sangeethroshanr@gmail.com"
+            className="px-6 py-3 rounded-full text-sm font-bold border-2 border-[#111111]
+              text-[#111111]
+              hover:bg-[#111111] hover:text-[#F4F3EE]
+              active:scale-[0.97] transition-all duration-150"
+          >
+            Say hello
+          </a>
+        </div>
       </div>
 
       {/* ── Bottom metadata ───────────────────────────────────────────── */}

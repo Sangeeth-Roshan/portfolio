@@ -81,8 +81,8 @@ export function Details() {
             <div className="absolute inset-0 md:-right-[50vw] bg-gradient-to-br from-[#FFDEE9] to-[#B5FFFC] z-0 overflow-hidden flex flex-col justify-center">
               
               {/* Marquee Vectors (Directly in background, single row) */}
-              <div className="flex w-max animate-marquee opacity-[0.12]" style={{ animationDuration: '40s' }}>
-                {[...Array(6)].map((_, i) => (
+              <div className="flex w-max animate-marquee opacity-[0.12]" style={{ animationDuration: '80s' }}>
+                {[...Array(12)].map((_, i) => (
                   <div key={i} className="flex gap-24 pr-24 items-center text-[#111111]">
                     <SoccerBall size={140} weight="duotone" />
                     <MusicNotes size={140} weight="duotone" />
